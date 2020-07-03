@@ -7,6 +7,14 @@
 <!-- Message -->
 {% include 'partials/_messages.html' %}
 Index page
+<form action="{% url 'index' %}" method="POST">
+  {% csrf_token %}
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" required>
+  <label for="password">Password</label>
+  <input type="password" id="password" name="password" required>
+  <input type="submit" value="SIGN IN" class="sigin-btn"> 
+</form>
 <a href="{% url 'register' %}">
   <h4>Register</h4>
 </a>
