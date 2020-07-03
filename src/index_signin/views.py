@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.views.generic import View
 
 # Create your views here.
@@ -15,7 +15,7 @@ class IndexSignInView(View):
         if user is not None:
             login(request, user)
             messages.success(request, f'Welcome back {username}!')
-            return redirect('dashboard/dash.html')
+            return redirect('dashboard')
         else:
             messages.error(request, 'The username or password is incorrect')
             return render(request, self.template_view, {})
