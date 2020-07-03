@@ -14,21 +14,6 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/dashboard.html'
 
 
-class UserProfileCreate(LoginRequiredMixin, CreateView):
-    """
-    Create user profile after registration
-    """
-    template_name = 'dashboard/user_profile.html'
-    form_class = UserProfileForm
-    success_url = 'dashboard'
-
-    def form_valid(self, form):
-        instance = form.save(commit=False)
-        instance.user_name = self.request.user
-        instance.save()
-        return redirect(self.get_success_url())
-
-
 class UserProfileUpdate(LoginRequiredMixin, UpdateView):
     """
     Update View for user profile
