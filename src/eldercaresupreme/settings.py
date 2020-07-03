@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'dashboard',
     'register',
     'index_signin',
-    'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
