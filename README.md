@@ -4,6 +4,22 @@ Welcome USER_NAME,
 
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
 
+## How to run app on local machine
+
+- Clone application repository to you local directory.
+- You will need to install python if you don't have it. All python version 3 should work. You can download the newest version from [here](https://www.python.org/downloads/)
+- Once you installed python, you will need to create virtual environment. You can learn more about it from [here](https://docs.python.org/3/tutorial/venv.html). To create virtual env follow steps:
+      - open terminal inside your VS code or you favourite code editor.
+      - inside terminal run `python -m venv venv-eldercaresupreme`
+      - now you virtual env should be created. But you need to activate it. If you are working on VS Code, press `Ctrl + Shift + P` and start typing `Python: select interpreter`. After first few letters it should come up. 
+      - once you picked that option you should see a list of Python version and you virtual environment should be there. If you can't see it there. You will have to open folder where you created your virtual env and find activate.bat inside Scripts folder. Then you need to copy the absolute path to this file inside your terminal if you are working on windows. For Mac/Linux you need to add `source` at the beginning
+      - then open new terminal. Above or before the line (depends which terminal you are using) you should see inside the brackets `(venv-eldercaresupreme)`
+- now you need to install all packages from requirements file. To do it type in terminal `pip install -r requirements.txt`
+- Almost there :). Now to run application you need to navigate inside the terminal to `src` folder. If you are in the main repository folder run `cd src`.
+- If you are inside the `src` folder run `python manage.py runserver`. After this command server should lunch and when you type `localhost` inside your browser you should see that app is running as well you should see inside the terminal that server lunched and it should show you the address to the app and you can `Ctrl + click` to open it in the browser
+
+
+
 ## Gitpod Reminders
 
 To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
