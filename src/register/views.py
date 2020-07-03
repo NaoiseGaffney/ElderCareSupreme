@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .froms import RegisterForm
 from dashboard.models import UserProfile
 
@@ -14,6 +14,11 @@ class RegisterView(CreateView):
     """
     template_name = 'accounts/register.html'
     form_class = RegisterForm
+
+    def get(self, request, *args, **kwargs):
+        # Logout user when access registration page
+        logout(request)
+        return render(request, self.template_name, {})
 
     def form_valid(self, form):
         form.save()
