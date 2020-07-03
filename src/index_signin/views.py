@@ -16,7 +16,7 @@ class IndexSignInView(View):
         user = authenticate(username=username, password=password)
 
         if user is not None:
-            login(request, user)
+            login(self.request, user)
             messages.success(request, f'Welcome back {username}!')
             return redirect('dashboard')
         else:

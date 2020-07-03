@@ -23,7 +23,6 @@ class UserProfileCreate(LoginRequiredMixin, CreateView):
     success_url = 'dashboard'
 
     def form_valid(self, form):
-        print(self.request.user)
         instance = form.save(commit=False)
         instance.user_name = self.request.user
         instance.save()
