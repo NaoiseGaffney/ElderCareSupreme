@@ -10,3 +10,6 @@ media
 
 # virtual env
 /venv-eldercaresupreme
+
+# Gaff Venv
+.venv
