@@ -26,6 +26,7 @@ class IndexSignInView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_view, {})
 
+
 class LogoutView(View):
     """
     Logout class

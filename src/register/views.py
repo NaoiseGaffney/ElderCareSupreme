@@ -1,10 +1,13 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from .froms import RegisterForm
 
 # Create your views here.
 
 class RegisterView(CreateView):
+    """
+    Register view template, display form and redirect to User Profile
+    """
     template_name = 'accounts/register.html'
     form_class = RegisterForm
 
@@ -13,4 +16,4 @@ class RegisterView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('index')
+        return redirect('user_profile_create')

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<h2>User profile</h2> 
+<h3>We just need a few more inforamtion before you can post you tasks</h3>
+
+<form method="post"> 
+  {% csrf_token %} 
+  {{ form.role}} 
+  {{ form.city}} 
+  {{ form.post_code}} 
+  {{ form.phone_number}} 
+  <input type="submit" value="SAVE" class="submit-btn"> 
+</form>
+{% endblock %}
