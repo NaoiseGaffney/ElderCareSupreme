@@ -3,6 +3,7 @@ from django.views.generic import CreateView
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .froms import RegisterForm
+from dashboard.models import UserProfile
 
 # Create your views here.
 
@@ -20,9 +21,11 @@ class RegisterView(CreateView):
         password = self.request.POST['password1']
         user = authenticate(username=username, password=password)
         if user is not None:
+            # Login user, create user profile and redirect to update profile page
             login(self.request, user)
+            user_profile = UserProfile.objects.create(user_name=user)
             messages.success(self.request, 
                              f'Congratulations {username}! Your account has been created.')
-            return redirect('user_profile_create')
+            return redirect('user_profile_update')
         else:
             return redirect('index')

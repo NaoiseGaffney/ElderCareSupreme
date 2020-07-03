@@ -10,7 +10,7 @@ class UserRole(models.Model):
 
 class UserProfile(models.Model):
     user_name = models.OneToOneField(User, on_delete=models.CASCADE)
-    city = models.CharField(max_length=60)
-    post_code = models.CharField(max_length=60,)
-    phone_number = models.IntegerField(max_length=12)
+    city = models.CharField(max_length=60, null=True)
+    post_code = models.CharField(max_length=60, null=True)
+    phone_number = models.IntegerField(max_length=12, null=True)
     role = models.ForeignKey(UserRole, on_delete=models.SET_NULL, null=True)
