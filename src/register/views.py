@@ -16,9 +16,14 @@ class RegisterView(CreateView):
     form_class = RegisterForm
 
     def get(self, request, *args, **kwargs):
-        # Logout user when access registration page
-        logout(request)
-        return render(request, self.template_name, {})
+        # override post method, first logout user then pass form
+        logout(self.request)
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        context = {
+            'form': form,
+        }
+        return render(request, self.template_name, context)
 
     def form_valid(self, form):
         form.save()
