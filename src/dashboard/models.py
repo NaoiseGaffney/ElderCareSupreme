@@ -12,5 +12,5 @@ class UserProfile(models.Model):
     user_name = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.CharField(max_length=60, null=True)
     post_code = models.CharField(max_length=60, null=True)
-    phone_number = models.IntegerField(max_length=12, null=True)
+    phone_number = models.IntegerField(null=True)
     role = models.ForeignKey(UserRole, on_delete=models.SET_NULL, null=True)
