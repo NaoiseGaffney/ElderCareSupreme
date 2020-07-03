@@ -6,4 +6,9 @@ Register
 
 {% block content %}
 Register page test
+<form method="post"> 
+  {% csrf_token %} 
+  {{ form.as_p }} 
+  <input type="submit" value="REGISTER" class="register-btn"> 
+</form>
 {% endblock %}
