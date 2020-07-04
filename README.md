@@ -19,6 +19,30 @@ This is the Code Institute student template for Gitpod. We have preinstalled all
 - If you are inside the `src` folder run `python manage.py runserver`. After this command server should lunch and when you type `localhost` inside your browser you should see that app is running as well you should see inside the terminal that server lunched and it should show you the address to the app and you can `Ctrl + click` to open it in the browser
 
 
+## Design Decisions
+
+### Design Decision - CSS:
+
+Materialize 1.0.0 to create a simple and easy-to-read website for the elderly.
+
+### Design Decision - Colour Scheme:
+
+The colour scheme must provide a strong enough contrast to make the website easy to read. It needs “air” to make all elements visibly stand out, and it needs to use colours suitable for the elderly.
+
+White background (bright and easy to read for an Elder as opposed to a dark background), possibly off-white or beige (softer, less harsh on the eyes).
+
+Blue is a common colour for care sites, however, blue is not an ideal colour for the elderly. Nor is green. A soft purple contrasts with the white/beige background and complements the accent colour of pink.
+
+Text colour is black and in some cases white when the buttons are purple or pink.
+Accent colour needs to stand out, a strong contrast to both the background and primary colour. Pink is a strong and visible colour, perhaps in a softer and lighter shade.
+
+Text Colour 1: #000000 Black
+Text Colour 2: #FFFFFF White
+Primary Colour: #B288C0 Blue Violet
+Background Colour: #F4ECD6 Eggshell
+Accent Colour: #FFADAD Light Pink
+
+These colours work well for people with colour blindness, good contrasts while maintaining colour scheme integrity (Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly, Achromatomaly).
 
 ## Gitpod Reminders
 
