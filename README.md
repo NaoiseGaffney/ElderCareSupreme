@@ -18,6 +18,7 @@ This is the Code Institute student template for Gitpod. We have preinstalled all
 - Almost there :). Now to run application you need to navigate inside the terminal to `src` folder. If you are in the main repository folder run `cd src`.
 - If you are inside the `src` folder run `python manage.py runserver`. After this command server should lunch and when you type `localhost` inside your browser you should see that app is running as well you should see inside the terminal that server lunched and it should show you the address to the app and you can `Ctrl + click` to open it in the browser
 
+<<<<<<< HEAD
 
 ## Design Decisions
 
@@ -43,6 +44,10 @@ Background Colour: #F4ECD6 Eggshell
 Accent Colour: #FFADAD Light Pink
 
 These colours work well for people with colour blindness, good contrasts while maintaining colour scheme integrity (Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly, Achromatomaly).
+=======
+git branch yourbranchname
+git checkout yourbranchname
+>>>>>>> f8a0d11cd5c96ac73a561bfb91ebd9f80dc50128
 
 ## Gitpod Reminders
 
