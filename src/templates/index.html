@@ -6,16 +6,54 @@
 
 <!-- Message -->
 {% include 'partials/_messages.html' %}
-Index page
-<form action="{% url 'index' %}" method="POST">
-  {% csrf_token %}
-  <label for="username">Username</label>
-  <input type="text" name="username" id="username" required>
-  <label for="password">Password</label>
-  <input type="password" id="password" name="password" required>
-  <input type="submit" value="SIGN IN" class="sigin-btn"> 
+<div class="row">
+  <form action="{% url 'index' %}" method="POST" class="container">
+    {% csrf_token %}
+    <div class="row">
+      <div class="input-field">
+        <label for="username" class="">Username</label>
+        <input type="text" name="username" id="username" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="SIGN IN" value="SIGN IN">Submit
+      <i class="material-icons right">send</i>
+    </button>
+    <a class="btn waves-effect waves-light pink lighten-2 modal-trigger right" href="#help">Help<i class="material-icons right">contact_support</i></a>
+    <aside>
+      <div class="container">
+        
+        <div id="help" class="modal">
+          <div class="modal-content">
+            <h4>Instructions</h4>
+            <p>The Elder Care Supreme application enables you to ask for help with your daily tasks.</p><br>
+            <p>To access your dashboard, to add and select the daily tasks you want help with, please login on this page using your 'Username' and 'Password' that you created when you registered your account.</p><br>
+            <p>If you do not have an account, please register clicking on the 'Register' button on the top right of this page. When you register, please provide the following details:
+              <ul class="modal-list">
+                <li>Your 'Username', whatever you wish to call yourself.</li>
+                <li>Your 'First name', so we can address you properly when helping you with your daily tasks.</li>
+                <li>Your 'E-mail' address, to communicate with you, and also used for password reset in case you have forgotten your password.</li>
+                <li>Your 'Password', used togther wiht your 'Username' to access your dashboard of daily tasks.</li>
+                <li>Please confirm your password by entering it again in 'Password confirmation'.</li>
+                <li>When you are ready, click on the 'Register' button to login with your 'Username' and 'Password'.</li>
+              </ul>
+            </p><br>
+            <p>Your dashboard contains a selection of common daily tasks that you may want help with. You can add your own tasks too. Select the task you need help with, fill out the details and...</p><br>
+            <p>When you are done, you may 'Logout' from this application.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close btn waves-effect waves-light pink lighten-2">I Understand<i class="material-icons right">thumb_up</i></a>
+          </div>
+        </div>
+    
+      </div>
+    </aside>
+</div>
 </form>
-<a href="{% url 'register' %}">
-  <h4>Register</h4>
-</a>
+</div>
 {% endblock %}
