@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -5,4 +6,43 @@
 
 body, html {
     background: #f4ecd6;
+=======
+@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #FBF8EF;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Materialze 1.0.0 Modifications and Overrides */
+input:focus {
+    border-bottom: 1px solid #f06292 !important;
+    box-shadow: 0 1px 0 0 #f06292 !important;
+}
+
+label.active {
+    color: #f06292 !important;
+}
+
+#matnavbar {
+    color: #f06292;
+}
+
+.modal,
+.modal-footer {
+    background-color: #FBF8EF !important;
+    font-family: 'Raleway', sans-serif;
+}
+
+ul {
+    list-style-type: circle !important;
+>>>>>>> GaffTestBranch
 }

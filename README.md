@@ -19,6 +19,7 @@ This is the Code Institute student template for Gitpod. We have preinstalled all
 - If you are inside the `src` folder run `python manage.py runserver`. After this command server should lunch and when you type `localhost` inside your browser you should see that app is running as well you should see inside the terminal that server lunched and it should show you the address to the app and you can `Ctrl + click` to open it in the browser
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## Design Decisions
 
@@ -48,6 +49,60 @@ These colours work well for people with colour blindness, good contrasts while m
 git branch yourbranchname
 git checkout yourbranchname
 >>>>>>> f8a0d11cd5c96ac73a561bfb91ebd9f80dc50128
+=======
+## Useful VS Code Commands
+
+git clone https://github.com/NaoiseGaffney/ElderCareSupreme.git
+
+src/python manage.py runserver
+src/python manage.py makemigrations
+src/python manage.py migrate
+src/python manage.py createsuperuser
+
+git branch yourbranchname
+git checkout yourbranchname
+git config --global user.mail "naoise.gaff.gaffney@gmail.com"
+git config --global user.name "NaoiseGaffney"
+
+git add .
+git commit -m "Sensible explanatory message here."
+git push --set-upstream origin GaffTestBranch
+--> Login in to GitHub (first time only)
+
+git checkout master
+git merge GaffTestBranch
+git push
+
+
+python manage.py collectstatic
+python manage.py runserver
+
+## Design Decisions
+
+### Design Decision - CSS:
+
+Materialize 1.0.0 to create a simple and easy-to-read website for the elderly.
+
+### Design Decision - Colour Scheme:
+
+The colour scheme must provide a strong enough contrast to make the website easy to read. It needs “air” to make all elements visibly stand out, and it needs to use colours suitable for the elderly.
+
+White background (bright and easy to read for an Elder as opposed to a dark background), possibly off-white or beige (softer, less harsh on the eyes).
+
+Blue is a common colour for care sites, however, blue is not an ideal colour for the elderly. Nor is green. A soft purple contrasts with the white/beige background and complements the accent colour of pink.
+
+Text colour is black and in some cases white when the buttons are purple or pink.
+
+Accent colour needs to stand out, a strong contrast to both the background and primary colour. Pink is a strong and visible colour, perhaps in a softer and lighter shade.
+
+Text Colour 1: #000000 Black
+Text Colour 2: #FFFFFF White
+Primary Colour: #B288C0 Blue Violet
+Background Colour: #FBF8EF Floral White
+Accent Colour: #FFADAD Light Pink
+
+These colours work well for people with colour blindness, good contrasts while maintaining colour scheme integrity (Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly, Achromatomaly).
+>>>>>>> GaffTestBranch
 
 ## Gitpod Reminders
 
