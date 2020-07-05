@@ -7,7 +7,10 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-.vscode
+
+# VS CODE
+/.vscode
+/.vscode/settings.json
 
 # virtual env
 /venv-eldercaresupreme
