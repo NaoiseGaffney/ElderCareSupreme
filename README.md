@@ -16,7 +16,7 @@ This web application is has been created by a team of coders working remotely to
 <u>**Concept</u>**
 
 
-To create an online resource for users who are self-isolating due to Covid-19. The web application will allow someone to ask for assistance for tasks that they are unable to complete themselves. For example, Shopping, Fetching Prescriptions, Walking pets etc.
+To create an online resource for users who are self-isolating due to Covid-19, those who need care and people who can give care. The web application will allow someone to ask for assistance for tasks that they are unable to complete themselves. For example, Shopping, Fetching Prescriptions, Walking pets etc.
 
 The ability for volunteers to be able to offer their time and provide assistance in completing tasks for those requesting assistance. 
 
