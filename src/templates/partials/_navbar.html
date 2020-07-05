@@ -8,7 +8,7 @@
                 <li><a href="/">Login<i class="material-icons right">login</i></a></li>
                 <li><a href="{% url 'register' %}">Register<i class="material-icons right">how_to_reg</i></a></li>
                 <li><a href="{% url 'dashboard' %}">Dashboard<i class="material-icons right">dashboard</i></a></li>
-                <li><a href="/userlogout">Logout<i class="material-icons right">pan_tool</i></a></li>
+                <li><a href="{% url 'logout' %}">Logout<i class="material-icons right">pan_tool</i></a></li>
             </ul>
         </div>
     </nav>
@@ -18,6 +18,6 @@
         <li><a href="/" class="white-text">Login<i class="material-icons white-text left">login</i></a></li>
         <li><a href="{% url 'register' %}" class="white-text">Register<i class="material-icons white-text left">how_to_reg</i></a></li>
         <li><a href="{% url 'dashboard' %}" class="white-text">Dashboard<i class="material-icons white-text left">dashboard</i></a></li>
-        <li><a href="/userlogout" class="white-text">Logout<i class="material-icons white-text left">pan_tool</i></a></li>
+        <li><a href="{% url 'logout' %}" class="white-text">Logout<i class="material-icons white-text left">pan_tool</i></a></li>
     </ul>
 </header>

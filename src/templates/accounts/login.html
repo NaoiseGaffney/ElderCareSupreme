@@ -7,7 +7,7 @@
 <!-- Message -->
 {% include 'partials/_messages.html' %}
 <div class="row">
-  <form action="{% url 'index' %}" method="POST" class="container">
+  <form action="{% url 'login' %}" method="POST" class="container">
     {% csrf_token %}
     <div class="row">
       <div class="input-field">
