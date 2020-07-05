@@ -5,10 +5,20 @@ Register
 {% endblock %}
 
 {% block content %}
-Register page test
-<form method="post"> 
-  {% csrf_token %} 
-  {{ form.as_p }} 
-  <input type="submit" value="REGISTER" class="register-btn"> 
-</form>
+<div class="row">
+
+
+  <form method="post" class="container">
+    {% csrf_token %}
+    <div class="row">
+    {{ form.as_p }}
+    <!-- <input type="submit" value="REGISTER" class="register-btn"> -->
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
+        value="REGISTER">Register<i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>
 {% endblock %}
