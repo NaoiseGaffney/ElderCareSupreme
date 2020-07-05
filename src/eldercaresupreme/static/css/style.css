@@ -38,6 +38,7 @@ label.active {
 .modal-footer {
     background-color: #FBF8EF !important;
     font-family: 'Raleway', sans-serif;
+    width: 80%;
 }
 
 ul>li {

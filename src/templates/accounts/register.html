@@ -5,10 +5,10 @@ Register
 {% endblock %}
 
 {% block content %}
-<div class="row">
+<div class="row container">
 
 
-  <form method="post" class="container">
+  <form method="post">
     {% csrf_token %}
     <div class="row">
     {{ form.as_p }}
