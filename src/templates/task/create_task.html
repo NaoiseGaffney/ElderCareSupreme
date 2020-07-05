@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load materializecss %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block content %}
+
+
+Create Task
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.task_title|materializecss }}
+  {{ form.category|materializecss }}
+  {{ form.description|materializecss }}
+  {{ form.date_required|materializecss }}
+  <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
+        value="SUBMIT">Submit<i class="material-icons right">send</i>
+  </button>
+</form>
+
+{% endblock %}

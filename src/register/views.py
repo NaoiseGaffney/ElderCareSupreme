@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -34,8 +34,11 @@ class RegisterView(CreateView):
             # Login user, create user profile and redirect to update profile page
             login(self.request, user)
             user_profile = UserProfile.objects.create(user_name=user)
+            user_profile.save()
+            print(user_profile)
             messages.success(self.request, 
                              f'Congratulations {username}! Your account has been created.')
-            return redirect('user_profile_update')
+            return redirect('update_user_profile', pk=user.id)
+            # return HttpResponseRedirect('/dashboard/user_profile_update/'+ user_profile.id)
         else:
             return redirect('index')
