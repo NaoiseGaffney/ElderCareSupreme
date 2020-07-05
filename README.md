@@ -37,6 +37,8 @@ git commit -m "Sensible explanatory message here."
 git push --set-upstream origin GaffTestBranch
 --> Login in to GitHub (first time only)
 
+git pull origin master
+
 git checkout master
 git merge GaffTestBranch
 git push
