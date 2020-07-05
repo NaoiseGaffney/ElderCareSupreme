@@ -9,7 +9,10 @@
                 <li><a href="{% url 'login' %}">Login<i class="material-icons right">login</i></a></li>
                 <li><a href="{% url 'register' %}">Register<i class="material-icons right">how_to_reg</i></a></li>
                 <li><a href="{% url 'dashboard' %}">Dashboard<i class="material-icons right">dashboard</i></a></li>
+                 {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout<i class="material-icons right">pan_tool</i></a></li>
+                {% endif %}
+                
             </ul>
         </div>
     </nav>
