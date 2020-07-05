@@ -6,6 +6,7 @@ My Tasks
 
 {% block content %}
 My tasks
+<a href="{% url 'create_task' %}" class="waves-effect waves-light btn">add task</a>
 {% for task in tasks %}
 <div class="row">
   <div class="col s12 m6">

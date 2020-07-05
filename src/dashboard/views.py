@@ -1,20 +1,26 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.views.generic import TemplateView, CreateView, UpdateView
+from django.views.generic import View, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import UserProfileForm
 from .models import UserProfile
 
 
-class DashboardView(LoginRequiredMixin, TemplateView):
+class DashboardView(LoginRequiredMixin, View):
     """
     Render dahsboard template
     """
     template_name = 'dashboard/dashboard.html'
 
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        context = {
+            'user': user 
+        }
+        return render(request, self.template_name, context)
 
-class UserProfileUpdate(LoginRequiredMixin, UpdateView):
+class UserProfileUpdate(UpdateView):
     """
     Update View for user profile
     """
@@ -29,7 +35,15 @@ class UserProfileUpdate(LoginRequiredMixin, UpdateView):
         """
         queryset = super(UserProfileUpdate, self).get_queryset()
         queryset = queryset.filter(user_name=self.request.user)
+        print(self.request.user)
+        print(queryset)
+        
         return queryset
+    
+    def get_object(self, **kwargs):
+        id_ = self.kwargs.get('pk')
+        object = get_object_or_404(UserProfile, user_name = id_)
+        return object
 
     def form_valid(self, form):
         """
