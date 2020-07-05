@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    background: #f4ecd6;
+=======
 @import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
 
 * {
@@ -35,4 +44,5 @@ label.active {
 
 ul {
     list-style-type: circle !important;
+>>>>>>> GaffTestBranch
 }
