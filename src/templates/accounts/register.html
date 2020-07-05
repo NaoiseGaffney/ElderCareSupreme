@@ -5,7 +5,6 @@ Register
 {% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
 <div class="row container">
 
 
@@ -22,18 +21,4 @@ Register
     </div>
   </form>
 </div>
-=======
-<form method="post" class="container">
-  {% csrf_token %}
-  <div class="row">
-  {{ form.as_p }}
-  <!-- <input type="submit" value="REGISTER" class="register-btn"> -->
-  </div>
-  <div class="row">
-    <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
-      value="REGISTER">Register<i class="material-icons right">send</i>
-    </button>
-  </div>
-</form>
->>>>>>> 2bf6879c6a786503f33433398ebd1f74f2aa1f25
 {% endblock %}
