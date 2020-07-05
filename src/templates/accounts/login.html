@@ -6,7 +6,6 @@
 
 <!-- Message -->
 {% include 'partials/_messages.html' %}
-<div class="row">
   <form action="{% url 'login' %}" method="POST" class="container">
     {% csrf_token %}
     <div class="row">
@@ -55,5 +54,4 @@
     </aside>
 </div>
 </form>
-</div>
 {% endblock %}
