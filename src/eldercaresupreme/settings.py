@@ -140,4 +140,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'eldercaresupreme/static')
 ]
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #email backend during development
