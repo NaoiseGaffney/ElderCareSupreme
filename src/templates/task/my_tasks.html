@@ -18,12 +18,20 @@ My tasks
         <p>{{ task.description }}</p>
       </div>
       <a href="{% url 'delete_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
+      <a style="margin-right: 70px;" href="{% url 'update_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">edit</i></a>
       <div class="card-action">
-        <a href="{% url 'update_task' task.id %}">Edit task</a>
+        <h6>Assigned aider</h6>
+        {% if task.aider %}
+          <a href="#"><i class="medium material-icons">group_add</i>
+            {{ task.aider }}
+          </a>
+        {% else %}
+          <i class="medium material-icons">group_add</i>
+        {% endif %}
       </div>
       <div class="card-action">
-        <p>Assigned aider</p>
-        <a href="#">{{ task.aider }}</a>
+        <h6>Messages</h6>
+        <a href="#"><i class="medium material-icons">message</i></a>
       </div>
     </div>
   </div>

@@ -29,5 +29,14 @@ class CreateTaskView(LoginRequiredMixin ,CreateView):
         instance.save()
         return redirect(self.success_url)
 
+
+class DeleteTaskView(LoginRequiredMixin, DeleteView):
+    model = Task
+    success_url = 'task_list'
+
+    def get_queryset(self):
+        queryset = super(DeleteView, self).get_queryset()
+        queryset = queryset.filter(user=self.request.user)
+        return queryset
 # class UpdateTaskView
-# class DeleteTaskView
+
