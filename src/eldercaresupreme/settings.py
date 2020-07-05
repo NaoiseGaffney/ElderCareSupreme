@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dashboard',
     'register',
     'index_signin',
+    'materializecssform',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
