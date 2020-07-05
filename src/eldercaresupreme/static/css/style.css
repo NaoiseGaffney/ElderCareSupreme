@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 }
 
 /* Materialze 1.0.0 Modifications and Overrides */
@@ -45,9 +45,13 @@ ul>li {
     padding-left: 1rem;
 }
 
+.heart-img {
+    width: 65%;
+}
+
 footer {
     margin-top: auto;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
 }
 
 footer a {

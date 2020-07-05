@@ -1,16 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
-class UserRole(models.Model):
-    role = models.CharField(max_length=10, blank=False, null=False, unique=True)
-    def __str__(self): 
-        return self.role
 
 class UserProfile(models.Model):
     user_name = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.CharField(max_length=60, null=True)
     post_code = models.CharField(max_length=60, null=True)
     phone_number = models.IntegerField(null=True)
-    role = models.ForeignKey(UserRole, on_delete=models.SET_NULL, null=True)
+    is_aider = models.BooleanField(blank=False, null=False, default=False)
+
+    def __str__(self):
+        return str(self.user_name)

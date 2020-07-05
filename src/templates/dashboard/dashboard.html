@@ -8,5 +8,7 @@
 {% include 'partials/_messages.html' %}
 Dashboard
 <a href="{% url 'logout' %}">logout</a>
+<hr>
+<a href="{% url 'update_user_profile' user.id %}">Update profile</a>
 
 {% endblock %}

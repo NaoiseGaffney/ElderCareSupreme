@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load materializecss %}
 {% block title %}
 Dashboard
 {% endblock %}
@@ -10,10 +11,11 @@ Dashboard
 
 <form method="post"> 
   {% csrf_token %} 
-  {{ form.role}} 
-  {{ form.city}} 
-  {{ form.post_code}} 
-  {{ form.phone_number}} 
+  
+  {{ form.city|materializecss}} 
+  {{ form.post_code|materializecss}} 
+  {{ form.is_aider|materializecss}} 
+  {{ form.phone_number|materializecss}} 
   <input type="submit" value="SAVE" class="submit-btn"> 
 </form>
 {% endblock %}
