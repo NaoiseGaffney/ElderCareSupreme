@@ -133,7 +133,15 @@ ul>li {
 }
 
 .heart-img {
-    width: 40%;
+  width: 40%;
+}
+
+.intro-text {
+  padding: 1rem;
+}
+
+.intro-btn {
+  margin: 0.5rem;
 }
 
 footer {
