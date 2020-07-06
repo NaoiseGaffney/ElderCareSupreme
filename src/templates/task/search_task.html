@@ -5,6 +5,9 @@ Search
 {% endblock %}
 
 {% block content %}
+
+<!-- Message -->
+{% include 'partials/_messages.html' %}
 <h5 class="center-align">Task Search</h3>
 {% for task in tasks %}
   <div class="container">
