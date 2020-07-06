@@ -15,8 +15,10 @@ class DashboardView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         user = self.request.user
+        user_profile = UserProfile.objects.filter(user_name=user)
         context = {
-            'user': user 
+            'user': user,
+            'user_profile': user_profile,
         }
         return render(request, self.template_name, context)
 

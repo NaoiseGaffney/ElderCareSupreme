@@ -6,9 +6,11 @@
 
 <!-- Message -->
 {% include 'partials/_messages.html' %}
-Dashboard
-<a href="{% url 'logout' %}">logout</a>
-<hr>
-<a href="{% url 'update_user_profile' user.id %}">Update profile</a>
+
+<h3 class="center-align">DASHBOARD</h3>
+<a href="{% url 'task_list' %}" class="waves-effect waves-light btn-large pink lighten-2"><i class="material-icons left">format_list_numbered</i>My Tasks</a>
+<a href="{% url 'create_task' %}" class="waves-effect waves-light btn-large pink lighten-2"><i class="material-icons left">add_box</i>Add Task</a>
+<a href="{% url 'update_user_profile' user.id %}" class="waves-effect waves-light btn-large pink lighten-2"><i class="material-icons left">person</i>Update Profile</a>
+<a href="{% url 'logout' %}" class="waves-effect waves-light btn-large pink lighten-2"><i class="material-icons left">pan_tool</i>Logout</a>
 
 {% endblock %}
