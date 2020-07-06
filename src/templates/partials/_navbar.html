@@ -40,7 +40,10 @@
       </li>
     {% else %}
       <li>
-        <a href="/" class="white-text">Login<i class="material-icons white-text left">login</i></a>
+        <a href="{% url 'index' %}" class="white-text">Home<i class="material-icons white-text left">home</i></a>
+      </li>
+      <li>
+        <a href="{% url 'login' %}" class="white-text">Login<i class="material-icons white-text left">login</i></a>
       </li>
       <li>
         <a href="{% url 'register' %}" class="white-text">Register<i class="material-icons white-text left">how_to_reg</i></a>
