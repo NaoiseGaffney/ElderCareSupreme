@@ -20,7 +20,7 @@ Register
           <i class="small material-icons">face</i> 
           <span>{{ message.user }}</span>
         </p>
-        <p class="chat-date">{{ message.date_created }}</p>
+        <p class="chat-date">{{ message.date_created|time:"G:i:s" }} - {{ message.date_created|date:"d-m-Y" }}</p>
       </div>
     </div>
   {% endfor %}
