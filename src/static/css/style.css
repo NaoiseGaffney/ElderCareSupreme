@@ -11,6 +11,13 @@ html,
 body {
     background-color: #FBF8EF;
     font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding-bottom: 1.5rem;
 }
 
 /* Materialze 1.0.0 Modifications and Overrides */
@@ -33,10 +40,20 @@ label.active {
     font-family: 'Raleway', sans-serif;
 }
 
-ul > li {
-    padding-left: 1em;
+ul>li {
+    padding-left: 1rem;
 }
 
-.helptext {
-    padding-left: 3em;
+.heart-img {
+    width: 40%;
+}
+
+footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
 }
