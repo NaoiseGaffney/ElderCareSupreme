@@ -6,9 +6,6 @@
         <i class="material-icons" id="matnavbar">menu</i>
       </a>
       <ul class="right hide-on-med-and-down pink lighten-2 waves-effect" id="nav-mobile">
-        <li>
-          <a href="{% url 'index' %}">Home<i class="material-icons right">home</i></a>
-        </li>
         {% if user.is_authenticated %}
         <li>
           <a href="{% url 'dashboard' %}">Dashboard<i class="material-icons right">dashboard</i></a>
@@ -17,6 +14,9 @@
           <a href="{% url 'logout' %}">Logout<i class="material-icons right">pan_tool</i></a>
         </li>
         {% else %}
+        <li>
+          <a href="{% url 'index' %}">Home<i class="material-icons right">home</i></a>
+        </li>
         <li>
           <a href="{% url 'login' %}">Login<i class="material-icons right">login</i></a>
         </li>
@@ -31,23 +31,23 @@
   <!-- Naviagtion for Mobile devices using a "Hamburger-menu" which must be defined outside of <nav></nav> to function in Materialize 1.0.0 -->
   <ul class="sidenav pink lighten-2" id="mobile-links">
     {% if user.is_authenticated %}
-      <li>
-        <a href="{% url 'dashboard' %}" class="white-text">Dashboard<i
-            class="material-icons white-text left">dashboard</i></a>
-      </li>
-      <li>
-        <a href="{% url 'logout' %}" class="white-text">Logout<i class="material-icons white-text left">pan_tool</i></a>
-      </li>
+    <li>
+      <a href="{% url 'dashboard' %}" class="white-text">Dashboard<i
+          class="material-icons white-text left">dashboard</i></a>
+    </li>
+    <li>
+      <a href="{% url 'logout' %}" class="white-text">Logout<i class="material-icons white-text left">pan_tool</i></a>
+    </li>
     {% else %}
-      <li>
-        <a href="{% url 'index' %}" class="white-text">Home<i class="material-icons white-text left">home</i></a>
-      </li>
-      <li>
-        <a href="{% url 'login' %}" class="white-text">Login<i class="material-icons white-text left">login</i></a>
-      </li>
-      <li>
-        <a href="{% url 'register' %}" class="white-text">Register<i class="material-icons white-text left">how_to_reg</i></a>
-      </li>
+    <li>
+      <a href="{% url 'index' %}" class="white-text">Home<i class="material-icons white-text left">home</i></a>
+    </li>
+    <li>
+      <a href="{% url 'login' %}" class="white-text">Login<i class="material-icons white-text left">login</i></a>
+    </li>
+    <li>
+      <a href="{% url 'register' %}" class="white-text">Register<i class="material-icons white-text left">how_to_reg</i></a>
+    </li>
     {% endif %}
   </ul>
 </header>
