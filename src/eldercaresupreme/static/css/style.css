@@ -65,6 +65,7 @@ header {
 
 #chat-messages-wrapper .chip {
   width: fit-content;
+  max-width: 60%;
   height: fit-content;
   font-size: 1.2rem;
   font-weight: 400;
