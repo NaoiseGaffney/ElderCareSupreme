@@ -12,7 +12,7 @@ Search
       <div class="card">
         <div class="card-content">
           <span class="card-title">{{ task.task_title }}</span>
-          {{ task.category }}
+          <p><i class="material-icons">{{ task.category.icon }}</i>{{ task.category }}</p>
         </div>
         <div class="card-content">
           <p><b>Description</b></p>
@@ -36,7 +36,7 @@ Search
         </div>
         <div class="card-action">
           <p><b>Messages</b></p>
-          <a href="#"><i class="medium material-icons">message</i></a>
+          <a href="{% url 'message' task.id %}"><i class="medium material-icons">message</i></a>
         </div>
       </div>
     </div>
