@@ -42,6 +42,11 @@ class UserProfileUpdate(UpdateView):
     
     def get_object(self, **kwargs):
         id_ = self.kwargs.get('pk')
+        profile = UserProfile.objects.filter(user_name = id_)
+        if not profile:
+            # Make sure to create a profile for user if not exists,
+            # It happens with superusers and users created from admin panel
+            UserProfile.objects.create(user_name = self.request.user)
         object = get_object_or_404(UserProfile, user_name = id_)
         return object
 
