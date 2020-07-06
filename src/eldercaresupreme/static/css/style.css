@@ -23,27 +23,27 @@ header {
 /* Messages */
 
 .success-message {
-  text-align: center;
-  background: aquamarine;
-  color: black;
-  font-size: 1rem;
-  font-weight: 600;
+    text-align: center;
+    background: aquamarine;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .error-message {
-  text-align: center;
-  background: crimson;
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
+    text-align: center;
+    background: crimson;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .other-message {
-  text-align: center;
-  background: #ffac16;
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
+    text-align: center;
+    background: #ffac16;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* Materialze 1.0.0 Modifications and Overrides */
@@ -82,4 +82,29 @@ footer {
 footer a {
     color: #ffffff;
     text-decoration: none;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    top: 100%;
+    left: 80%;
+    margin-left: -20px;
+    background-color: purple;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 2;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
