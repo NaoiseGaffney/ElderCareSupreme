@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'task',
+    'message',
     'dashboard',
     'register',
     'index_signin',
@@ -140,4 +141,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'eldercaresupreme/static')
 ]
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #email backend during development
