@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, DeleteView, UpdateView, ListView, View
+from django.views.generic import CreateView, DeleteView, UpdateView, ListView, View, RedirectView
 from django.db.models import Q
 from django.contrib import messages
 
@@ -98,3 +98,24 @@ class SearchTaskView(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
+
+
+class AssignAiderView(LoginRequiredMixin, RedirectView):
+    """
+    Assign a user, with toggle option
+    """
+    pattern_name = 'search_task'
+    def get_redirect_url(self, *args, **kwargs):
+        id_ = self.kwargs.get("pk")
+        obj = get_object_or_404(Task, id=id_)
+        user = self.request.user
+        if obj.aider == None:
+            obj.aider = user
+            obj.save()
+        else:
+            if obj.aider ==  user:
+                obj.aider = None
+                obj.save()
+            else:
+                messages.error(self.request, f'Other Aider is assigned to this task!')
+        return super().get_redirect_url()
