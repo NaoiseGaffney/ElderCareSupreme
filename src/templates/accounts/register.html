@@ -27,11 +27,6 @@ Register
       <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter your e-mail address, for example 'name@domain.com'.</span></div>
       {{ field }}
       {% endif %}
-
-      <!-- {% if 'Password' in field.label %}
-      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter a password longer than 8 characters, using a mixture of numbers and characters.</span></div>
-      {{ field }}
-      {% endif %} -->
       
       {% if field.label == 'Password' %}
       <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter a password longer than 8 characters, using a mixture of numbers and letters, and ideally one or more special characters.</span></div>
@@ -43,18 +38,14 @@ Register
       {{ field }}
       {% endif %}
       {% endfor %}
-      <!-- <input type="submit" value="REGISTER" class="register-btn"> -->
+      
     </div>
     <div class="row">
       <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
         value="REGISTER">Register<i class="material-icons right">send</i>
       </button>
     </div>
-    <!-- <div class="row tooltip">
-      <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
-        value="REGISTER">Register<i class="material-icons right">send</i>
-      </button><span class="tooltiptext">This is a tooltip!</span>
-    </div> -->
+    
   </form>
 </div>
 {% endblock %}
