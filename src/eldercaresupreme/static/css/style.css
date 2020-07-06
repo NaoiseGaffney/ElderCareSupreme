@@ -20,7 +20,7 @@ header {
     padding-bottom: 1.5rem;
 }
 
-/* Messages */
+/* Messages Pop up */
 
 .success-message {
     text-align: center;
@@ -44,6 +44,67 @@ header {
     color: white;
     font-size: 1rem;
     font-weight: 600;
+}
+
+/* Chat messages */
+#chat-message-form {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: #fbf8ef;
+  bottom: -20px;
+  z-index: 10;
+  border-top: solid 1px #f06292;
+}
+
+#chat-messages-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#chat-messages-wrapper .chip {
+  width: fit-content;
+  height: fit-content;
+  font-size: 1.2rem;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+#chat-messages-wrapper div.chip:last-child {
+  margin-bottom: 165px;
+}
+
+#chat-messages-wrapper .chip > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-date {
+  font-size: 0.8rem;
+}
+
+.chat-user {
+  font-size: 1rem;
+  display: flex;
+  margin-right: 30px;
+}
+
+.chat-user span {
+  margin-left: 5px;
+}
+
+.user-post {
+  background-color: #f06292;
+  margin-left: auto;
+  color: #fff;
+}
+
+.guest-post {
+  background-color: #e4e4e4;
 }
 
 /* Materialze 1.0.0 Modifications and Overrides */

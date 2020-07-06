@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<div id="chat-messages-wrapper" class="row container">
+  {% for message in get_messages %}
+    <div class="chip
+    {% if message.user == user %}
+      user-post
+    {% else %}
+      guest-post
+    {% endif %}
+    ">
+      <p>{{ message.message }}</p>
+      <div>
+        <p class="chat-user">
+          <i class="small material-icons">face</i> 
+          <span>{{ message.user }}</span>
+        </p>
+        <p class="chat-date">{{ message.date_created }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div id="chat-message-form" class="row container">
+  <form method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="chat-message" name="chat-message" class="materialize-textarea" data-length="300"></textarea>
+        <label for="chat-message">Message</label>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
+        value="SEND">SEND<i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>
+<div id="chat-bottom" name="chat-bottom"></div>
+{% endblock %}
