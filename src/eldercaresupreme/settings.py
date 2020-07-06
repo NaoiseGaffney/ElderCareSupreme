@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dashboard',
     'register',
     'index_signin',
+    'rest_framework',
     'materializecssform',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -31,18 +31,18 @@
         <div class="card-action">
           <p><b>Assigned aider</b></p>
           {% if task.aider %}
-            <a href="{% url 'aider' task.id %}"><i class="medium material-icons">group_add</i>
+            <a href="{% url 'aider' task.id %}"><i class="small material-icons">person_add</i>
               {{ task.aider }}
             </a>
           {% else %}
           <a href="{% url 'aider' task.id %}">
-            <i class="medium material-icons">group_add</i>
+            <i class="small material-icons">person_outline</i> 
           </a>
           {% endif %}
         </div>
         <div class="card-action">
           <p><b>Messages</b></p>
-          <a href="{% url 'message' task.id %}#chat-bottom"><i class="medium material-icons">message</i></a>
+          <a href="{% url 'message' task.id %}#chat-bottom"><i class="small material-icons">message</i></a>
         </div>
       </div>
     </div>

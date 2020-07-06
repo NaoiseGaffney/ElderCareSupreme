@@ -109,6 +109,9 @@ class AssignAiderView(LoginRequiredMixin, RedirectView):
         id_ = self.kwargs.get("pk")
         obj = get_object_or_404(Task, id=id_)
         user = self.request.user
+        # Check if no aider is assign to the task
+        # If user is assigned toggle him
+        # and if someone else is assign throw error message
         if obj.aider == None:
             obj.aider = user
             obj.save()
