@@ -60,4 +60,6 @@ class UserProfileUpdate(LoginRequiredMixin, UpdateView):
         instance = form.save(commit=False)
         instance.user_name = self.request.user
         instance.save()
+        messages.success(self.request, 
+                             f'Your profile was updated!')
         return redirect(self.get_success_url())

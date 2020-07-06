@@ -30,6 +30,8 @@ class CreateTaskView(LoginRequiredMixin ,CreateView):
         instance = form.save(commit=False)
         instance.user = self.request.user
         instance.save()
+        messages.success(self.request, 
+                             f'Your task is created!')
         return redirect(self.success_url)
 
 
@@ -71,6 +73,8 @@ class UpdateTaskView(LoginRequiredMixin, UpdateView):
         instance = form.save(commit=False)
         instance.user = self.request.user
         instance.save()
+        messages.success(self.request, 
+                             f'Your task was updated!')
         return redirect(self.get_success_url())
 
 
