@@ -22,7 +22,7 @@ class DashboardView(LoginRequiredMixin, View):
         }
         return render(request, self.template_name, context)
 
-class UserProfileUpdate(UpdateView):
+class UserProfileUpdate(LoginRequiredMixin, UpdateView):
     """
     Update View for user profile
     """

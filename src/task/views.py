@@ -17,7 +17,7 @@ class ListMyTaskView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         queryset = super(ListMyTaskView, self).get_queryset()
-        queryset = queryset.filter(user=self.request.user)
+        queryset = queryset.filter(user=self.request.user).order_by('-date_created')
         return queryset
 
 
@@ -33,34 +33,45 @@ class CreateTaskView(LoginRequiredMixin ,CreateView):
         return redirect(self.success_url)
 
 
-class DeleteTaskView(LoginRequiredMixin, DeleteView):
-    model = Task
+class DeleteTaskView(LoginRequiredMixin, View):
+    """
+    Delte view, check if user is owner of that post
+    """
     template_name = 'task/task_removed.html'
 
-    def get_queryset(self):
-        queryset = super(DeleteView, self).get_queryset()
-        queryset = queryset.filter(user=self.request.user)
-        return queryset
-
-    def get_object(self, *args, **kwargs):
-        tasks = get_object_or_404(Task, pk=self.kwargs['pk'])
-        return tasks
+    def get(self, request, *args, **kwargs):
+        id_ = self.kwargs['pk']
+        task = Task.objects.filter(id=id_, user=self.request.user).delete()
+        print(task)
+        return render(request, self.template_name, {})
 
 
 class UpdateTaskView(LoginRequiredMixin, UpdateView):
-    template_name = 'tasks/update_task.html'
+    template_name = 'task/update_task.html'
     form_class = TaskForm
     model = Task
     success_url = 'task_list'
 
     def get_queryset(self):
-        queryset = super(DeleteView, self).get_queryset()
+        queryset = super(UpdateTaskView, self).get_queryset()
         queryset = queryset.filter(user=self.request.user)
         return queryset
 
     def get_object(self, *args, **kwargs):
-        tasks = get_object_or_404(Task, pk=self.kwargs['pk'])
-        return tasks
+        id_ = self.kwargs.get('pk')
+        object = get_object_or_404(Task, pk=id_)
+        print(object)
+        return object
+
+    def form_valid(self, form):
+        """
+        Valid form
+        """
+        print(self.request.user)
+        instance = form.save(commit=False)
+        instance.user = self.request.user
+        instance.save()
+        return redirect(self.get_success_url())
 
 
 class SearchTaskView(LoginRequiredMixin, View):
