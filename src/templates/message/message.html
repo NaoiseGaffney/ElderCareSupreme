@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<div class="row container">
+  {{get_messages}}
+  {% for message in get_messages %}
+    <div class="chip">
+      <p>{{ message.message }}</p>
+      <p><i class="medium material-icons">face</i> {{ message.user }}</p>
+      <p>{{ message.date_created }}</p>
+    </div>
+  {% endfor %}
+</div>
+<div class="row container">
+  <form method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="chat-message" name="chat-message" class="materialize-textarea" data-length="300"></textarea>
+        <label for="chat-message">Message</label>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
+        value="SEND">SEND<i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
