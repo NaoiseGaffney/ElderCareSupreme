@@ -10,36 +10,39 @@
 {% include 'partials/_messages.html' %}
 <h5 class="center-align">Task Search</h3>
 {% for task in tasks %}
-  <div class="container">
-    <div class="col s12 m10">
+  <div class="row container">
+    <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">{{ task.task_title }}</span>
-          <p><i class="material-icons">{{ task.category.icon }}</i>{{ task.category }}</p>
+          <span class="card-title"><b>{{ task.task_title }}</b></span>
+          <p><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
         <div class="card-content">
           <p><b>Description</b></p>
           <p>{{ task.description }}</p>
         </div>
-        <div class="card-content">
+        <div class="card-content card-contact">
           <p><b>Location</b></p>
-          <p>{{ task.user.userprofile.city }}</p>
-          <p>{{ task.user.userprofile.post_code }}</p>
+          <p>City/Town: {{ task.user.userprofile.city }}</p>
+          <p>Post Code:  {{ task.user.userprofile.post_code }}</p>
+          <p>Phone Number: {{ task.user.userprofile.phone_number  }}</p>
         </div>
         <a href="#" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">group_add</i></a>
         <div class="card-action">
           <p><b>Assigned aider</b></p>
           {% if task.aider %}
-            <a href="#"><i class="medium material-icons">group_add</i>
+            <a href="{% url 'aider' task.id %}"><i class="small material-icons">person_add</i>
               {{ task.aider }}
             </a>
           {% else %}
-            <i class="medium material-icons">group_add</i>
+          <a href="{% url 'aider' task.id %}">
+            <i class="small material-icons">person_outline</i> 
+          </a>
           {% endif %}
         </div>
         <div class="card-action">
           <p><b>Messages</b></p>
-          <a href="{% url 'message' task.id %}#chat-bottom"><i class="medium material-icons">message</i></a>
+          <a href="{% url 'message' task.id %}#chat-bottom"><i class="small material-icons">message</i></a>
         </div>
       </div>
     </div>
