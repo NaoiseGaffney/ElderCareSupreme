@@ -10,13 +10,13 @@
   {% csrf_token %}
   <div class="row">
     <div class="input-field">
-      <label for="username" class="">Username</label>
+      <div class="tooltip"><label for="username" class="">Username</label><span class="tooltiptext">Please enter your username, the same one you used when you registered.</span></div>
       <input type="text" name="username" id="username" required>
     </div>
   </div>
   <div class="row">
     <div class="input-field">
-      <label for="password">Password</label>
+      <div class="tooltip"><label for="password">Password</label><span class="tooltiptext">Please enter your password, the same one you used when you registered.</span></div>
       <input type="password" id="password" name="password" required>
     </div>
   </div>
