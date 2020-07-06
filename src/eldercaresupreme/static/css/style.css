@@ -20,6 +20,32 @@ header {
     padding-bottom: 1.5rem;
 }
 
+/* Messages */
+
+.success-message {
+  text-align: center;
+  background: aquamarine;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.error-message {
+  text-align: center;
+  background: crimson;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.other-message {
+  text-align: center;
+  background: #ffac16;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 /* Materialze 1.0.0 Modifications and Overrides */
 input:focus {
     border-bottom: 1px solid #f06292 !important;
