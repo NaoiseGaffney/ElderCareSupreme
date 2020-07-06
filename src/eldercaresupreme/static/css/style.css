@@ -38,7 +38,6 @@ label.active {
 .modal-footer {
     background-color: #FBF8EF !important;
     font-family: 'Raleway', sans-serif;
-    /* width: fit-content; */
 }
 
 ul>li {
@@ -46,7 +45,7 @@ ul>li {
 }
 
 .heart-img {
-    width: 65%;
+    width: 40%;
 }
 
 footer {
