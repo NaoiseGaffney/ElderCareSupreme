@@ -7,7 +7,7 @@
 <!-- Message -->
 {% include 'partials/_messages.html' %}
 
-<h3 class="center-align">DASHBOARD</h3>
+<h5 class="center-align">Welcome {{ user }} to your dashbaord</h3>
 {% if user_profile.0.is_aider == True %}
   <a href="{% url 'search_task' %}" class="waves-effect waves-light btn-large pink lighten-2"><i class="material-icons left">search</i>Task Search</a>
 {% endif %}
