@@ -12,7 +12,9 @@ class MessageView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         id_ = self.kwargs.get("pk")
         get_messages = Message.objects.filter(task=id_).order_by('-date_created')
+        user = self.request.user
         context = {
+            'user': user,
             'get_messages': get_messages,
         }
         return render(request, self.template_name, context)
@@ -26,6 +28,7 @@ class MessageView(LoginRequiredMixin, View):
             Message.objects.create(user=user, task=task[0], message=message)
         get_messages = Message.objects.filter(task=id_).order_by('-date_created')
         context = {
+            'user': user,
             'get_messages': get_messages,
         }
         return render(request, self.template_name, context)

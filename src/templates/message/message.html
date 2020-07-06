@@ -5,17 +5,27 @@ Register
 {% endblock %}
 
 {% block content %}
-<div class="row container">
-  {{get_messages}}
+<div id="chat-messages-wrapper" class="row container">
   {% for message in get_messages %}
-    <div class="chip">
+    <div class="chip
+    {% if message.user == user %}
+      user-post
+    {% else %}
+      guest-post
+    {% endif %}
+    ">
       <p>{{ message.message }}</p>
-      <p><i class="medium material-icons">face</i> {{ message.user }}</p>
-      <p>{{ message.date_created }}</p>
+      <div>
+        <p class="chat-user">
+          <i class="small material-icons">face</i> 
+          <span>{{ message.user }}</span>
+        </p>
+        <p class="chat-date">{{ message.date_created }}</p>
+      </div>
     </div>
   {% endfor %}
 </div>
-<div class="row container">
+<div id="chat-message-form" class="row container">
   <form method="post">
     {% csrf_token %}
     <div class="row">
@@ -31,4 +41,5 @@ Register
     </div>
   </form>
 </div>
+<div id="chat-bottom" name="chat-bottom"></div>
 {% endblock %}
