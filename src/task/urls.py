@@ -1,6 +1,8 @@
 from django.urls import path
 
-from .views import CreateTaskView , ListMyTaskView, DeleteTaskView, SearchTaskView, UpdateTaskView, AssignAiderView
+from .views import (CreateTaskView , ListMyTaskView, DeleteTaskView, 
+                    SearchTaskView, UpdateTaskView, AssignAiderView, 
+                    AssignAiderAPI, IsDoneAPI)
 
 
 urlpatterns = [
@@ -10,5 +12,7 @@ urlpatterns = [
     path('delete_task/<int:pk>', DeleteTaskView.as_view(), name='delete_task'),
     path('search_task', SearchTaskView.as_view(), name='search_task'),
     path('aider/<int:pk>', AssignAiderView.as_view(), name='aider'),
-    path('api/post/<int:pk>/aider/', SearchTaskView.as_view(), name='aider_api'),
+    path('api/post/<int:pk>/aider/', AssignAiderAPI.as_view(), name='aider_api'),
+    # path('is_done/<int:pk>', AssignAiderView.as_view(), name='is_done'),
+    # path('api/post/<int:pk>/is_done/', IsDoneAPI.as_view(), name='is_done_api'),
 ]

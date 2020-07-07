@@ -39,7 +39,7 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d-m-Y" }}</p>
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }}</p>
           <span class="card-title"><b>{{ task.task_title }}</b></span>
           <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
@@ -56,10 +56,10 @@
           </div>
           <div>
             <p><b>Date required</b></p>
-            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d-m-Y" }}</p>
+            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
           </div>
         </div>
-        <a href="{% url 'aider' task.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">person_add</i></a>
+        <a class="add-aider-btn" data-href="{{ task.get_aider_api_url }}" href="{{ task.get_aider_url }}"class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">person_add</i></a>
         <div class="card-action card-aider">
           {% if task.aider %}
             <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
@@ -107,5 +107,29 @@
       {% endif %}
   </span>
 </div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+  $(".add-aider-btn").click(function(e){
+    e.preventDefault()
+    var this_ = $(this)
+    var aiderUrl = this_.attr("data-href")
+    $.ajax({
+      url: aiderUrl,
+      method: "GET",
+      data:{},
+      success: function(data) {
+        //let clapCount = document.querySelector(".clap-count")
+        //clapCount.innerHTML = data.claps;
+      }, error: function(error){
+        console.log(error)
+        console.log("error")
+      }
+    })
+  })
+</script>
 
 {% endblock %}

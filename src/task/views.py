@@ -5,6 +5,11 @@ from django.views.generic import CreateView, DeleteView, UpdateView, ListView, V
 from django.db.models import Q
 from django.contrib import messages
 
+# Django REST
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+
 from .forms import TaskForm
 from .models import Task
 from dashboard.models import UserProfile
@@ -103,7 +108,7 @@ class SearchTaskView(LoginRequiredMixin, View):
         is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
         if is_aider:
             # Get tasks that are not done and user does not own them
-            tasks = Task.objects.filter(is_done=False).filter(~Q(user=user))
+            tasks = Task.objects.filter(is_done=False).filter(~Q(user=user)).order_by('-date_created')
             context = {
                 'tasks': tasks,
             }
@@ -120,7 +125,7 @@ class SearchTaskView(LoginRequiredMixin, View):
         is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
         if is_aider:
             # Get tasks that are not done and user does not own them plus or query from post
-            tasks = Task.objects.filter(post_code_q | city_q).filter(~Q(user=user))
+            tasks = Task.objects.filter(post_code_q | city_q).filter(~Q(user=user)).order_by('-date_created')
             context = {
                 'tasks': tasks,
             }
@@ -151,3 +156,63 @@ class AssignAiderView(LoginRequiredMixin, RedirectView):
             else:
                 messages.error(self.request, f'Other Aider is assigned to this task!')
         return super().get_redirect_url()
+
+
+class AssignAiderAPI(APIView):
+    """
+    Api view for user aider toggle
+
+    * Requires token authentication.
+    * Only admin users are able to access this view.
+    """
+    authentication_classes = [authentication.SessionAuthentication]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+    def get(self, request, pk, format=None, **kwargs):
+        obj = get_object_or_404(Task, id=pk)
+        user = self.request.user
+        # Check if no aider is assign to the task
+        # If user is assigned toggle him
+        # and if someone else is assign throw error message
+        if obj.aider:
+            obj.aider = user
+            obj.save()
+            data = {
+                    'aider': obj.aider.username,
+                }
+        else:
+            if obj.aider ==  user:
+                obj.aider = None
+                obj.save()
+                data = {
+                    'aider': obj.aider.username,
+                }
+            else:
+                get_message = messages.error(self.request, 
+                                             f'Other Aider is assigned to this task!')
+                data = {
+                    'get_message': get_message,
+                }
+        return Response(data)
+
+
+class IsDoneAPI(APIView):
+    """
+    View for task is_done toggle
+
+    * Requires token authentication.
+    * Only admin users are able to access this view.
+    """
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get(self, request, id=None, format=None):
+        obj = get_object_or_404(Task, id=id)
+        url_ = obj.get_absolute_url()
+        obj.is_done = True
+        obj.save()
+        data = {
+            'is_done': obj.is_done,
+        }
+        return Response(data)
