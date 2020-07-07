@@ -6,16 +6,26 @@
 {% endblock %}
 
 {% block content %}
-<h2>User profile</h2> 
-<h3>We just need a little more information before you can post your tasks</h3>
+<div class="container">
+  <h2>User profile</h2>
+  <h3>We just need a little more information before you can post your tasks</h3>
 
-<form method="post"> 
-  {% csrf_token %} 
-  
-  {{ form.city|materializecss}} 
-  {{ form.post_code|materializecss}} 
-  {{ form.is_aider|materializecss}} 
-  {{ form.phone_number|materializecss}} 
-  <input type="submit" value="SAVE" class="submit-btn"> 
-</form>
+  <form method="post">
+    {% csrf_token %}
+    <div class="tooltip"><label for="city">City</label><span class="tooltiptext">Please enter the city you live
+        in.</span></div>
+    {{ form.city }}
+    <div class="tooltip"><label for="post_code">Post code</label><span class="tooltiptext">Please enter your
+        post code / Eircode.</span></div>
+    {{ form.post_code }}
+
+    <div class="tooltip">{{ form.is_aider|materializecss }}<span class="tooltiptext">Please tick this box if you are and
+        aide / assistant.</span></div><br>
+    <div class="tooltip"><label for="phone_number">Phone number</label><span class="tooltiptext">Please enter
+        your phone number.</span></div>
+    {{ form.phone_number }}
+    <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="SAVE" value="SAVE">Save<i
+        class="material-icons right">send</i></button>
+  </form>
+</div>
 {% endblock %}

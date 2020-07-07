@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     M.AutoInit(); /* Can't pass in options with M.AutoInit(), only use default values */
+    let elemsDatepicker = document.querySelectorAll(".datepicker");
+    let instanceDatepicker = M.Datepicker.init(elemsDatepicker, {
+        yearRange: 3,
+        format: 'yyyy-mm-dd'
+    });
     /* let elemsSidenav = document.querySelectorAll(".sidenav");
     let instancesSidenav = M.Sidenav.init(elemsSidenav); // Remove "options" from (elems, options)
     let elemsMaterialboxed = document.querySelectorAll(".materialboxed");
