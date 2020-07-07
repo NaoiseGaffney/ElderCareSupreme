@@ -1,1 +1,1 @@
-web: gunicorn src/eldercaresupreme.wsgi --log-file -
+web: gunicorn --pythonpath radio radio.wsgi
