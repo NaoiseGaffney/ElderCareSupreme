@@ -1,1 +1,1 @@
-web: gunicorn eldercaresupreme.wsgi:application
+web: gunicorn eldercaresupreme.config.settings.wsgi
