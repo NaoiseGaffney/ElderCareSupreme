@@ -142,4 +142,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'eldercaresupreme/static')
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #email backend during development
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SENDGRID_API_KEY = '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' # change key and use envvar in production
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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' # change key and useenv var in production
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'admin@ElderCareSupreme.org' # 
