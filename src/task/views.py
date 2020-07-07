@@ -88,7 +88,7 @@ class SearchTaskView(LoginRequiredMixin, View):
         # check if user is an aider
         is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
         if is_aider:
-            tasks = Task.objects.filter(is_done=False)
+            tasks = Task.objects.filter(is_done=False).filter(~Q(user=user))
             context = {
                 'tasks': tasks,
             }
