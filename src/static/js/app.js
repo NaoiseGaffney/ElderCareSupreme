@@ -31,3 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }); */
 });
 
+// Call time picker
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.timepicker');
+  var instances = M.Timepicker.init(elems, {
+    // 24h required for db
+    twelveHour: false,
+  });
+});
