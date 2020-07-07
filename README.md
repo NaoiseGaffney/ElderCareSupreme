@@ -1,6 +1,6 @@
 
 
-# ELDERCARE SUPREME #
+# ELDER CARE SUPREME #
 
 Advanced Team A
  
@@ -12,13 +12,21 @@ Hackerthon July 2020
 
 This web application is has been created by a team of coders working remotely to produce a quality online resource. The project will be submitted to a panel of expert to be judged as part of an online competition which is run regularly by the Institute. The idea is to give current and past students the valuable experience of working as a team.
 
-
-<u>**Concept</u>**
-
+**<u>Concept</u>** 
 
 To create an online resource for users who are self-isolating due to Covid-19, those who need care and people who can give care. The web application will allow someone to ask for assistance for tasks that they are unable to complete themselves. For example, Shopping, Fetching Prescriptions, Walking pets etc.
 
 The ability for volunteers to be able to offer their time and provide assistance in completing tasks for those requesting assistance. 
+
+**<u>Coding Process</u>** 
+
+We had an initial zoom meeting to introduce ourselves and decide on the concept for the project. After a short discussion, we split the team into Front-End, rear-end developers based on experience and individual preference.
+
+We started a Trello board to contain a breakdown of the tasks required to build the website. This would also include being able to allocate tasks to team members to avoid work duplication. 
+
+We decided to use GiHub as a store, working locally by creating branches from the master whilst working on the code and then pushing back to the master branch when completed. 
+
+During the project we have had a morning and evening zoom meeting to keep in touch, discussing any issues and allocating work to team members.  
 
 
 **<u>UI/UX</u>**
@@ -52,42 +60,75 @@ These colours work well for people with colour blindness, good contrasts while m
 
 **<u>User Stories:</u>**
 
-Home page:
+Landing Page: 
 
-As a visitor, I would like to see a summary of the objectives of the site.
+As a visitor, I would like to be able to login or register for an account.
 
-As a visitor, I would like to be able to register for a new account.
+Login Page:
 
-As a visitor, I would like to be able to login to view my dashboard.
-
-As a visitor, I would like to be able to find out about the people who have created the site. 
-
-Registration: 
-
-As a new visitor would like to be able to register for an account.  Using an easy to follow form.
+As a user, I would like to be able to login to the site using my credentials.
 
 Dashboard:
 
+As a user, I would like to make a selection from Adding a new task, Selecting an existing task, and updating my profile details.
 
-As a registered user, I would like to be able to create my own tasks.
+Search for a task:
 
-As a registered user, I would like to be able to search for tasks in my local area. 
+As a user, I would like to be able to search for a task by city name or post code.
 
-As a registered user, I would like to be able update my profile.
+Add task:
+
+As a user, I would like to be able to add a new task.
+
+Update Profile:
+
+As a user, I would like to be able to update the details in my profile.
+
 
 **<u>Testing</u>**
 
-Testing has been complted by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
+Testing has been completed by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
 
-All the forms have been tested for field validation and functionality.
+**<u>General Website Functionality Tests:</u>**
 
-The buttons throughout the site have all been tested to make sure that they are working as planned
+Landing Page: 
 
+All the buttons have been checked for functionality. All are working as planned.
+
+Login Page:
+
+The form has been tested line by line for validation and functionality. Working as planned.
+The buttons on the page have also been tested and the links are all working correctly.
+
+Dashboard:
+
+All of the buttons have been tested and are working as desired.
+
+Search for a task:
+
+The form has been tested and is working correctly. If no tasks are available in the area selected then the correct message is displayed. Otherwise, the available tasks are displayed as planned.
+
+Select task:
+
+The functionality of this page has been tested and is working correctly
+
+My tasks:
+
+The buttons and functionality of this page have been confirmed to be working correctly.
+
+Add task: 
+
+The form has been tested and is working as desired.
+
+Update Profile:
+
+The form has been tested and works as planned. 
 
 **<u>Technology Used</u>**
 
 * Python
 * Django
+* Django REST Framwork
 * Javascript
 * HTML
 * CSS
@@ -96,6 +137,8 @@ The buttons throughout the site have all been tested to make sure that they are 
 * Visual Studio Code
 * GitHub
 * GitPod
+* Zoom
+* Visual Studio Code
 
 
 
@@ -125,7 +168,8 @@ After this command server should lunch and when you type localhost inside your b
 
 A special thank you for all team members for their hard work, understanding and friendship shown during the process of creating this site.
 
-In a additon a big thank you to all of our family and friends for their understanding and support shown.
+Also, a big thank you to all of our family and friends for their understanding and support shown.
+
 
 
 
