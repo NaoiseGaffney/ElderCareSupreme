@@ -157,6 +157,11 @@ header {
   justify-content: center;
 }
 
+/* Search Task */
+#search-form button {
+  margin-top: 22px;
+}
+
 /* Materialze 1.0.0 Modifications and Overrides */
 input:focus {
     border-bottom: 1px solid #f06292 !important;

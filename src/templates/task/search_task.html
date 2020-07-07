@@ -10,14 +10,16 @@
 {% include 'partials/_messages.html' %}
 <h5 class="center-align">Task Search</h3>
 <div class="row container">
-  <form class="col s12" method="POST">
+  <form id="search-form" class="col s12" method="POST">
     {% csrf_token %}
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s10">
         <i class="material-icons prefix">search</i>
-        <textarea id="search" name="search" class="materialize-textarea" maxlength="40"></textarea>
+        <input id="search" type="text" name="search" class="materialize-textarea" maxlength="40"></input>
         <label for="search">Search</label>
-        <span class="helper-text" data-error="wrong" data-success="right">Search for City/Town or Post Code</span>
+        <span class="helper-text" data-error="wrong" data-success="right">Search for City/Town or Post Code</span>  
+      </div>
+      <div class="col s2">
         <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="SEARCH"
         value="SEARCH">Search<i class="material-icons right">send</i>
         </button>
@@ -25,6 +27,13 @@
     </div>
   </form>
 </div>
+{% if not tasks %}
+<div class="row container">
+  <div class="col s12 m12">
+    <h3 class="center-align">Sorry.<br> We couldn't find any task in this area.</h3>
+  </div>
+</div>
+{% endif %}
 {% for task in tasks %}
   <div class="row container">
     <div class="col s12 m12">
