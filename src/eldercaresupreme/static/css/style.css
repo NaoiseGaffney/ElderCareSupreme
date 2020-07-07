@@ -20,6 +20,7 @@ header {
   padding-bottom: 1.5rem;
 }
 
+/* Materialze 1.0.0 Modifications and Overrides */
 /* Messages Pop up */
 
 .success-message {
@@ -155,6 +156,11 @@ header {
 #dashboard a {
   display: flex;
   justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.breathing_space {
+  padding-bottom: 1rem;
 }
 
 /* Search Task */
@@ -162,7 +168,7 @@ header {
   margin-top: 22px;
 }
 
-/* Materialze 1.0.0 Modifications and Overrides */
+
 input:focus {
   border-bottom: 1px solid #f06292 !important;
   box-shadow: 0 1px 0 0 #f06292 !important;
@@ -176,6 +182,7 @@ label.active {
   color: #f06292;
 }
 
+/* Modal Colour Schemes to Match Elder Care Supreme UX Design */
 .modal,
 .modal-footer {
   background-color: #FBF8EF !important;
@@ -208,6 +215,7 @@ footer a {
   text-decoration: none;
 }
 
+/* ToolTip and ToolTipText position and colour scheme */
 .tooltip {
   position: relative;
   display: inline-block;
@@ -219,7 +227,7 @@ footer a {
   top: 100%;
   left: 80%;
   margin-left: -20px;
-  background-color: #f06292;
+  background-color: purple;
   color: #fff;
   text-align: center;
   padding: 10px;
