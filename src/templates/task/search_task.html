@@ -34,23 +34,31 @@
             <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d-m-Y" }}</p>
           </div>
         </div>
-        <a href="{% url 'aider' task.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">group_add</i></a>
+        <a href="{% url 'aider' task.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">person_add</i></a>
         <div class="card-action card-aider">
           {% if task.aider %}
             <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
-            <a class="pinkish" href="{% url 'aider' task.id %}"><i class="small material-icons">person_add</i>
+            <a class="pinkish" href="{% url 'aider' task.id %}"><i class="small material-icons">person</i>
             </a>
           {% else %}
             <p><b>No Assigned Aider</b></p>
             <a class="black-icon" href="{% url 'aider' task.id %}">
-              <i class="small material-icons">person_outline</i> 
+              <i class="small material-icons">person_add</i> 
             </a>
           {% endif %}
         </div>
         <div class="card-action">
-          <p><b>Messages</b></p>
-          {{ task.message }}
-          <a href="{% url 'message' task.id %}#chat-bottom"><i class="small material-icons">message</i></a>
+          {% if task.message_count == 0 %}
+            <p><b>Messages</b></p>
+            <a class="black-icon" href="{% url 'message' task.id %}#chat-bottom">
+              <i class="small material-icons">message</i>
+            </a>
+          {% else %}
+            <p class="pinkish"><b>Messages</b></p>
+            <a class="pinkish" href="{% url 'message' task.id %}#chat-bottom">
+              <i class="small material-icons">message</i> <b>{{ task.message_count }}</b>
+            </a>
+          {% endif %}
         </div>
       </div>
     </div>
