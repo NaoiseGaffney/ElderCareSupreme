@@ -52,36 +52,36 @@ These colours work well for people with colour blindness, good contrasts while m
 
 **<u>User Stories:</u>**
 
-**General Users:**
+Home page:
 
-As a user, I would like to create a secure user profile. 
+As a visitor, I would like to see a summary of the objectives of the site.
 
-As a registered user I would like to be able to ask for assistance by selecting from a pre-defined drop-down menu or by entering my own details.
+As a visitor, I would like to be able to register for a new account.
 
-As a registered user I would like to be able to ask offer assistance by selecting from a pre-defined drop-down menu or by entering my own details.
+As a visitor, I would like to be able to login to view my dashboard.
 
+As a visitor, I would like to be able to find out about the people who have created the site. 
 
-As a registered user I would like to browse a list of users requesting assistance selected by distance. Then being able to select the item on the list to assign that item request to my profile. 
+Registration: 
 
-As a registered user I would like to be able to browse a list of assistance being offered so that I can select an item to be allocated to my profile to select that item.
+As a new visitor would like to be able to register for an account.  Using an easy to follow form.
 
-**Admin users:**
-
-As an admin user, I would like to be able to create, amend or delete the predefined tasks in the drop-down menu.
-
-As an admin user, I would like to be able to add, amend or delete user accounts.
+Dashboard:
 
 
+As a registered user, I would like to be able to create my own tasks.
 
+As a registered user, I would like to be able to search for tasks in my local area. 
 
+As a registered user, I would like to be able update my profile.
 
 **<u>Testing</u>**
 
-We have tested the application by using the in-built testing tools provided by Django. 
+Testing has been complted by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
 
-Also, the application has been tested by several humans using as many different devices as possible. Mobile phones, Tablets, Notebooks, and Desktops.
+All the forms have been tested for field validation and functionality.
 
-All the forms have been tested for field validation and functionality. The buttons throughout the site have all been tested to make sure that they are working as planned
+The buttons throughout the site have all been tested to make sure that they are working as planned
 
 
 **<u>Technology Used</u>**
@@ -120,6 +120,15 @@ Almost there :). Now to run application
 If you are inside the src folder run python manage.py runserver. 
 
 After this command server should lunch and when you type localhost inside your browser you should see that app is running as well you should see inside the terminal that server lunched and it should show you the address to the app and you can Ctrl + click to open it in the browser.
+
+**<u>Acknowledgements</u>**
+
+A special thank you for all team members for their hard work, understanding and friendship shown during the process of creating this site.
+
+In a additon a big thank you to all of our family and friends for their understanding and support shown.
+
+
+
 
 
 

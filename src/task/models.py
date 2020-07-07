@@ -20,5 +20,11 @@ class Task(models.Model):
     date_created = models.DateField(auto_now_add=False, default=timezone.now)
     date_required = models.DateField(auto_now_add=False, default=timezone.now)
 
+    def get_aider_url(self):
+        return reverse('aider', kwargs={'id': self.id})
+    
+    def get_aider_api_url(self):
+        return reverse('aider_api', kwargs={'id': self.id})
+
     def __str__(self):
         return self.task_title
