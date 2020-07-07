@@ -1,1 +1,1 @@
-web: gunicorn eldercaresupreme.wsgi --log-file -
+web: gunicorn src/eldercaresupreme.wsgi --log-file -
