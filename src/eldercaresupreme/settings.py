@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+import django_heroku
 from django.contrib.messages import constants as messages
 
 import os
@@ -25,12 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hp+s)4k^(p#@dhv_n6!!u8_$qb!t2&i_yy&w@pny9%lo8s3ro4'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'elder-care-supreme-staging.herokuapp.com', 'elder-care-supreme.herokuapp.com']
 
 
 # Application definition
@@ -84,13 +85,18 @@ WSGI_APPLICATION = 'eldercaresupreme.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
     }
-}
+else:
+    # Local DB
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -158,3 +164,7 @@ EMAIL_HOST_PASSWORD = 'SG.DfzYJ3ygTgWQJaNhZ7BniA.ymrtgOqWEGCXK9TXtHliY6a25zPcYs3
 EMAIL_PORT = 465
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'admin@ElderCareSupreme.org' # 
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
