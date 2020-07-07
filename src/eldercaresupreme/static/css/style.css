@@ -1,49 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    background-color: #FBF8EF;
-    font-family: 'Raleway', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background-color: #FBF8EF;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-    padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 /* Messages Pop up */
 
 .success-message {
-    text-align: center;
-    background: aquamarine;
-    color: black;
-    font-size: 1rem;
-    font-weight: 600;
+  text-align: center;
+  background: aquamarine;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .error-message {
-    text-align: center;
-    background: crimson;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
+  text-align: center;
+  background: crimson;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .other-message {
-    text-align: center;
-    background: #ffac16;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
+  text-align: center;
+  background: #ffac16;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Chat messages */
@@ -79,7 +79,7 @@ header {
   margin-bottom: 165px;
 }
 
-#chat-messages-wrapper .chip > div {
+#chat-messages-wrapper .chip>div {
   display: flex;
   justify-content: space-between;
 }
@@ -164,26 +164,26 @@ header {
 
 /* Materialze 1.0.0 Modifications and Overrides */
 input:focus {
-    border-bottom: 1px solid #f06292 !important;
-    box-shadow: 0 1px 0 0 #f06292 !important;
+  border-bottom: 1px solid #f06292 !important;
+  box-shadow: 0 1px 0 0 #f06292 !important;
 }
 
 label.active {
-    color: #f06292 !important;
+  color: #f06292 !important;
 }
 
 #matnavbar {
-    color: #f06292;
+  color: #f06292;
 }
 
 .modal,
 .modal-footer {
-    background-color: #FBF8EF !important;
-    font-family: 'Raleway', sans-serif;
+  background-color: #FBF8EF !important;
+  font-family: 'Raleway', sans-serif;
 }
 
 ul>li {
-    padding-left: 1rem;
+  padding-left: 1rem;
 }
 
 .heart-img {
@@ -199,36 +199,36 @@ ul>li {
 }
 
 footer {
-    margin-top: auto;
-    padding-top: 1.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
 footer a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .tooltip {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 160px;
-    top: 100%;
-    left: 80%;
-    margin-left: -20px;
-    background-color: purple;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
+  visibility: hidden;
+  width: 160px;
+  top: 100%;
+  left: 80%;
+  margin-left: -20px;
+  background-color: #f06292;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
 
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 2;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 2;
 }
 
 .tooltip:hover .tooltiptext {
-    visibility: visible;
+  visibility: visible;
 }
