@@ -240,3 +240,95 @@ footer a {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+/* Datepicker and Timepicker Displays to Align to Colour Scheme */
+.datepicker-date-display,
+.timepicker-digital-display {
+  background-color: #f06292;
+}
+
+.datepicker-day-button:focus,
+.timepicker-canvas-bg:focus {
+  color: white !important;
+  background-color: #f06292;
+}
+
+.datepicker-done,
+.datepicker-cancel,
+.select-dropdown li>span,
+.is-today {
+  color: #f06292 !important
+}
+
+td.is-selected,
+.month-prev:active,
+.month-prev:focus,
+.month-next:active,
+.month-next:focus {
+  background-color: #f06292 !important
+}
+
+td.is-selected.is-today {
+  color: rgb(255, 255, 255) !important
+}
+
+/* Timepicker Containers */
+.timepicker-tick.active,
+.timepicker-tick:hover {
+  background-color: #f06292;
+}
+
+.timepicker-canvas line {
+  stroke: #f06292;
+}
+
+.timepicker-canvas-bearing,
+.timepicker-canvas-bg {
+  stroke: none;
+  fill: #f06292;
+}
+
+/* Timepicker Footer 'Cancel' and 'OK' */
+.timepicker-clear {
+  color: #f06292;
+}
+
+.timepicker-close {
+  color: #f06292;
+}
+
+/* Text Form Input */
+/* label color */
+.input-field label,
+label {
+  color: #000;
+  /* color: #f06292; */
+}
+
+/* label focus color */
+.input-field input[type=text]:focus+label {
+  color: #f06292;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #f06292;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #f06292;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #f06292;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
