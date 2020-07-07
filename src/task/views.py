@@ -11,6 +11,9 @@ from dashboard.models import UserProfile
 
 
 class ListMyTaskView(LoginRequiredMixin, ListView):
+    """
+    List all user tasks
+    """
     template_name = 'task/my_tasks.html'
     model = Task
     paginate_by = 5
@@ -23,6 +26,9 @@ class ListMyTaskView(LoginRequiredMixin, ListView):
 
 
 class CreateTaskView(LoginRequiredMixin ,CreateView):
+    """
+    Create a task class view
+    """
     template_name = 'task/create_task.html'
     form_class = TaskForm
     success_url = 'task_list'
@@ -50,17 +56,22 @@ class DeleteTaskView(LoginRequiredMixin, View):
 
 
 class UpdateTaskView(LoginRequiredMixin, UpdateView):
+    """
+    Update task view
+    """
     template_name = 'task/update_task.html'
     form_class = TaskForm
     model = Task
     success_url = 'task_list'
 
     def get_queryset(self):
+        # Make sure that user can acces only his own tasks
         queryset = super(UpdateTaskView, self).get_queryset()
         queryset = queryset.filter(user=self.request.user)
         return queryset
 
     def get_object(self, *args, **kwargs):
+        # get object or 404
         id_ = self.kwargs.get('pk')
         object = get_object_or_404(Task, pk=id_)
         print(object)
@@ -80,6 +91,9 @@ class UpdateTaskView(LoginRequiredMixin, UpdateView):
 
 
 class SearchTaskView(LoginRequiredMixin, View):
+    """
+    Search task page class view
+    """
     template_name = 'task/search_task.html'
     paginate_by = 10
 
@@ -88,6 +102,7 @@ class SearchTaskView(LoginRequiredMixin, View):
         # check if user is an aider
         is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
         if is_aider:
+            # Get tasks that are not done and user does not own them
             tasks = Task.objects.filter(is_done=False).filter(~Q(user=user))
             context = {
                 'tasks': tasks,
