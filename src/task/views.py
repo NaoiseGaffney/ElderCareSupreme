@@ -175,7 +175,7 @@ class AssignAiderAPI(APIView):
         # Check if no aider is assign to the task
         # If user is assigned toggle him
         # and if someone else is assign throw error message
-        if obj.aider:
+        if obj.aider == None:
             obj.aider = user
             obj.save()
             data = {
@@ -186,13 +186,12 @@ class AssignAiderAPI(APIView):
                 obj.aider = None
                 obj.save()
                 data = {
-                    'aider': obj.aider.username,
+                    'aider': None,
                 }
             else:
-                get_message = messages.error(self.request, 
-                                             f'Other Aider is assigned to this task!')
+                messages.error(self.request, f'Other Aider is assigned to this task!')
                 data = {
-                    'get_message': get_message,
+                    'aider': 'aider_assigned',
                 }
         return Response(data)
 

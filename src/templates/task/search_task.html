@@ -59,18 +59,20 @@
             <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
           </div>
         </div>
-        <a class="add-aider-btn" data-href="{{ task.get_aider_api_url }}" href="{{ task.get_aider_url }}"class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">person_add</i></a>
         <div class="card-action card-aider">
+            <a class="add-aider-btn btn-floating halfway-fab waves-effect waves-light red" data-href="{{ task.get_aider_api_url }}" href="{{task.get_aider_url}}">
+              <i class="material-icons">person_add</i>
+            </a>
           {% if task.aider %}
-            <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
-            <a class="pinkish" href="{% url 'aider' task.id %}"><i class="small material-icons">person</i>
-            </a>
+            <p class="pinkish assigned-aider">Assigned Aider - {{ task.aider }}</p>
+            <i class="pinkish aider-icon small material-icons">person</i>
           {% else %}
-            <p><b>No Assigned Aider</b></p>
-            <a class="black-icon" href="{% url 'aider' task.id %}">
-              <i class="small material-icons">person_add</i> 
-            </a>
+            <p class="assigned-aider">No Assigned Aider</p>
+            <i class="small material-icons">person</i>
           {% endif %}
+            <!-- <a class="black-icon" href="">
+              <i class="small material-icons">person_add</i> 
+            </a> -->
         </div>
         <div class="card-action">
           {% if task.message_count == 0 %}
@@ -114,16 +116,37 @@
 
 <script>
   $(".add-aider-btn").click(function(e){
-    e.preventDefault()
+    e.preventDefault();
     var this_ = $(this)
     var aiderUrl = this_.attr("data-href")
+    var aiderName = this_.siblings(".assigned-aider");
+    var aiderIcon = this_.siblings(".aider-icon");
+    console.log("*****");
+    console.log(aiderName);
+    console.log("*****");
     $.ajax({
       url: aiderUrl,
       method: "GET",
       data:{},
       success: function(data) {
-        //let clapCount = document.querySelector(".clap-count")
-        //clapCount.innerHTML = data.claps;
+        console.log("*****");
+        console.log(aiderName);
+        console.log("*****");
+        jQuery( document ).ready(function( $ ) {
+          if(data.aider != null){
+            aiderName[0].innerHTML = `Assigned aider - ${data.aider}`;
+            aiderName[0].classList.add("pinkish");
+            aiderIcon[0].classList.add("pinkish");
+          } else if(data.aider == "aider_assigned") {
+            
+          } else {
+            aiderName[0].innerHTML = "No Assigned Aider";
+            aiderName[0].classList.remove("pinkish");
+            aiderIcon[0].classList.remove("pinkish");
+          }
+        });
+        
+        
       }, error: function(error){
         console.log(error)
         console.log("error")

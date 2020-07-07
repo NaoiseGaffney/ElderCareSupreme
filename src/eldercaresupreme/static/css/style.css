@@ -146,6 +146,14 @@ header {
   color: #f06292 !important;
 }
 
+.add-aider-btn-wrapper {
+  position: relative;
+}
+
+.add-aider-btn {
+  position: absolute;
+}
+
 /* Dashboard */
 #dashboard {
   display: flex;
