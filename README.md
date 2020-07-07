@@ -52,42 +52,75 @@ These colours work well for people with colour blindness, good contrasts while m
 
 **<u>User Stories:</u>**
 
-Home page:
+Landing Page: 
 
-As a visitor, I would like to see a summary of the objectives of the site.
+As a visitor I would like to be able to login or register for an account.
 
-As a visitor, I would like to be able to register for a new account.
+Login Page:
 
-As a visitor, I would like to be able to login to view my dashboard.
-
-As a visitor, I would like to be able to find out about the people who have created the site. 
-
-Registration: 
-
-As a new visitor would like to be able to register for an account.  Using an easy to follow form.
+As a user I would like to be able to login to the site using my credentials.
 
 Dashboard:
 
+As a user I would like to make a selection from Adding a new task, Selecting a existing task, and updating my profile details.
 
-As a registered user, I would like to be able to create my own tasks.
+Search for a task:
 
-As a registered user, I would like to be able to search for tasks in my local area. 
+As a user I would like to be able to search for a task by city name or post code.
 
-As a registered user, I would like to be able update my profile.
+Add task:
+
+As a user I would like to be able to add a new task.
+
+Update Profile:
+
+As a user I would like to be able to update the details in my profile.
+
 
 **<u>Testing</u>**
 
 Testing has been complted by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
 
-All the forms have been tested for field validation and functionality.
+**<u>General Website Functionality Tests:</u>**
 
-The buttons throughout the site have all been tested to make sure that they are working as planned
+Landing Page: 
 
+All the buttons have been checked for functionality. All are working as planned.
+
+Login Page:
+
+The form has been tested line by line for validation and functionality. Working as planned.
+The buttons on the page have also been tested and the links are all working correctly.
+
+Dashboard:
+
+All of the buttons have been tested and are working as desired.
+
+Search for a task:
+
+The form has been tested and is working correclty. If no tasks are available in the area selected then the correct message is displayed. Otherwise the available tasks are displayed as planned.
+
+Select task:
+
+Functionality of this page has been tested and is working correctly.
+
+My tasks:
+
+The buttons and functionality of this page has been confrmed to be working correctly.
+
+Add task: 
+
+The form has been tested and is working as desired.
+
+Update Profile:
+
+The form has been tested and works as planned. 
 
 **<u>Technology Used</u>**
 
 * Python
 * Django
+* Django REST Framwork
 * Javascript
 * HTML
 * CSS
