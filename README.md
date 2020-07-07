@@ -1,6 +1,6 @@
 
 
-# ELDERCARE SUPREME #
+# ELDER CARE SUPREME #
 
 Advanced Team A
  
@@ -54,32 +54,32 @@ These colours work well for people with colour blindness, good contrasts while m
 
 Landing Page: 
 
-As a visitor I would like to be able to login or register for an account.
+As a visitor, I would like to be able to login or register for an account.
 
 Login Page:
 
-As a user I would like to be able to login to the site using my credentials.
+As a user, I would like to be able to login to the site using my credentials.
 
 Dashboard:
 
-As a user I would like to make a selection from Adding a new task, Selecting a existing task, and updating my profile details.
+As a user, I would like to make a selection from Adding a new task, Selecting an existing task, and updating my profile details.
 
 Search for a task:
 
-As a user I would like to be able to search for a task by city name or post code.
+As a user, I would like to be able to search for a task by city name or post code.
 
 Add task:
 
-As a user I would like to be able to add a new task.
+As a user, I would like to be able to add a new task.
 
 Update Profile:
 
-As a user I would like to be able to update the details in my profile.
+As a user, I would like to be able to update the details in my profile.
 
 
 **<u>Testing</u>**
 
-Testing has been complted by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
+Testing has been completed by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
 
 **<u>General Website Functionality Tests:</u>**
 
@@ -98,15 +98,15 @@ All of the buttons have been tested and are working as desired.
 
 Search for a task:
 
-The form has been tested and is working correclty. If no tasks are available in the area selected then the correct message is displayed. Otherwise the available tasks are displayed as planned.
+The form has been tested and is working correctly. If no tasks are available in the area selected then the correct message is displayed. Otherwise, the available tasks are displayed as planned.
 
 Select task:
 
-Functionality of this page has been tested and is working correctly.
+The functionality of this page has been tested and is working correctly
 
 My tasks:
 
-The buttons and functionality of this page has been confrmed to be working correctly.
+The buttons and functionality of this page have been confirmed to be working correctly.
 
 Add task: 
 
@@ -158,7 +158,8 @@ After this command server should lunch and when you type localhost inside your b
 
 A special thank you for all team members for their hard work, understanding and friendship shown during the process of creating this site.
 
-In a additon a big thank you to all of our family and friends for their understanding and support shown.
+Also, a big thank you to all of our family and friends for their understanding and support shown.
+
 
 
 
