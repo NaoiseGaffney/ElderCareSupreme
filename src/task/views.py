@@ -112,7 +112,21 @@ class SearchTaskView(LoginRequiredMixin, View):
             return redirect('task_list')
 
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name, {})
+        search = self.request.POST.get("search", None)
+        city_q = Q(user__userprofile__city__iexact=search)
+        post_code_q = Q(user__userprofile__post_code__iexact=search)
+        user = self.request.user
+        # check if user is an aider
+        is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
+        if is_aider:
+            # Get tasks that are not done and user does not own them plus or query from post
+            tasks = Task.objects.filter(post_code_q | city_q).filter(~Q(user=user))
+            context = {
+                'tasks': tasks,
+            }
+            return render(request, self.template_name, context)
+        else:
+            return redirect('task_list')
 
 
 class AssignAiderView(LoginRequiredMixin, RedirectView):
