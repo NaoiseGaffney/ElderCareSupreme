@@ -108,6 +108,44 @@ header {
   background-color: #e4e4e4;
 }
 
+/* Task card */
+.task-created {
+  text-align: end;
+  font-weight: 600;
+  color: #f06292;
+}
+
+.card-content .card-title b {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-category {
+  font-weight: 600;
+  color: #f06292;
+  text-transform: uppercase;
+}
+
+.card-contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-contact div:last-child {
+  margin-left: 30px;
+  text-align: end;
+  font-weight: 600;
+  color: #f06292;
+}
+
+.black-icon {
+  color: #000 !important;
+}
+
+.pinkish {
+  color: #f06292 !important;
+}
+
 /* Materialze 1.0.0 Modifications and Overrides */
 input:focus {
     border-bottom: 1px solid #f06292 !important;

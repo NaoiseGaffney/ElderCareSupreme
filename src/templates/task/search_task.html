@@ -14,34 +14,42 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d-m-Y" }}</p>
           <span class="card-title"><b>{{ task.task_title }}</b></span>
-          <p><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
+          <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
         <div class="card-content">
-          <p><b>Description</b></p>
+          <p><b >Description</b></p>
           <p>{{ task.description }}</p>
         </div>
         <div class="card-content card-contact">
-          <p><b>Location</b></p>
-          <p>City/Town: {{ task.user.userprofile.city }}</p>
-          <p>Post Code:  {{ task.user.userprofile.post_code }}</p>
-          <p>Phone Number: {{ task.user.userprofile.phone_number  }}</p>
+          <div>
+            <p><b>Location</b></p>
+            <p>City/Town: {{ task.user.userprofile.city }}</p>
+            <p>Post Code:  {{ task.user.userprofile.post_code }}</p>
+            <p>Phone Number: {{ task.user.userprofile.phone_number  }}</p>
+          </div>
+          <div>
+            <p><b>Date required</b></p>
+            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d-m-Y" }}</p>
+          </div>
         </div>
-        <a href="#" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">group_add</i></a>
-        <div class="card-action">
-          <p><b>Assigned aider</b></p>
+        <a href="{% url 'aider' task.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">group_add</i></a>
+        <div class="card-action card-aider">
           {% if task.aider %}
-            <a href="{% url 'aider' task.id %}"><i class="small material-icons">person_add</i>
-              {{ task.aider }}
+            <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
+            <a class="pinkish" href="{% url 'aider' task.id %}"><i class="small material-icons">person_add</i>
             </a>
           {% else %}
-          <a href="{% url 'aider' task.id %}">
-            <i class="small material-icons">person_outline</i> 
-          </a>
+            <p><b>No Assigned Aider</b></p>
+            <a class="black-icon" href="{% url 'aider' task.id %}">
+              <i class="small material-icons">person_outline</i> 
+            </a>
           {% endif %}
         </div>
         <div class="card-action">
           <p><b>Messages</b></p>
+          {{ task.message }}
           <a href="{% url 'message' task.id %}#chat-bottom"><i class="small material-icons">message</i></a>
         </div>
       </div>
