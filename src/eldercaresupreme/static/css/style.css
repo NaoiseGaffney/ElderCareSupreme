@@ -146,6 +146,17 @@ header {
   color: #f06292 !important;
 }
 
+/* Dashboard */
+#dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+#dashboard a {
+  display: flex;
+  justify-content: center;
+}
+
 /* Materialze 1.0.0 Modifications and Overrides */
 input:focus {
     border-bottom: 1px solid #f06292 !important;
