@@ -17,32 +17,52 @@
 </div>
 
 {% for task in tasks %}
-  <div class="container">
-    <div class="col s12 m10">
+  <div class="row container">
+    <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">{{ task.task_title }}</span>
-          <p><i class="material-icons">{{ task.category.icon }}</i>{{ task.category }}</p>
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d-m-Y" }}</p>
+          <span class="card-title"><b>{{ task.task_title }}</b></span>
+          <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
         <div class="card-content">
-          <p><b>Description</b></p>
+          <p><b >Description</b></p>
           <p>{{ task.description }}</p>
+        </div>
+        <div class="card-content">
+          <p><b >Description</b></p>
+          <p>{{ task.description }}</p>
+        </div>
+        <div class="card-content">
+          <p><b>Date required</b></p>
+          <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d-m-Y" }}</p>
         </div>
         <a href="{% url 'delete_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light tooltipped red" ata-tooltip="Delete task"><i class="material-icons">delete</i></a>
         <a style="margin-right: 70px;" href="{% url 'update_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-        <div class="card-action">
-          <p><b>Assigned aider</b></p>
+        <div class="card-action card-aider">
           {% if task.aider %}
-            <a href="#"><i class="medium material-icons">group_add</i>
-              {{ task.aider }}
+            <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
+            <a class="pinkish"><i class="small material-icons">person</i>
             </a>
           {% else %}
-            <i class="medium material-icons">group_add</i>
+            <p><b>No Assigned Aider</b></p>
+            <a class="black-icon">
+              <i class="small material-icons">person_add</i> 
+            </a>
           {% endif %}
         </div>
         <div class="card-action">
-          <p><b>Messages</b></p>
-          <a href="{% url 'message' task.id %}#chat-bottom"><i class="medium material-icons">message</i></a>
+          {% if task.message_count == 0 %}
+            <p><b>Messages</b></p>
+            <a class="black-icon" href="{% url 'message' task.id %}#chat-bottom">
+              <i class="small material-icons">message</i>
+            </a>
+          {% else %}
+            <p class="pinkish"><b>Messages</b></p>
+            <a class="pinkish" href="{% url 'message' task.id %}#chat-bottom">
+              <i class="small material-icons">message</i> <b>{{ task.message_count }}</b>
+            </a>
+          {% endif %}
         </div>
       </div>
     </div>
