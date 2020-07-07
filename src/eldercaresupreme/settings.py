@@ -14,6 +14,7 @@ from django.contrib.messages import constants as messages
 
 import os
 import dotenv
+import dj_database_url
 
 # Load dotenv
 dotenv.load_dotenv()
