@@ -7,8 +7,14 @@
 {% block content %}
 
 <!-- Message -->
-{% include 'partials/_messages.html' %}
-<h5 class="center-align">Task Search</h3>
+<div id="fixed-message">
+  <div class="chip error-message ">
+    Error: Other Aider is assigned to this task!
+  </div>
+</div>
+<div class="container center-align">
+  <h5 class="center-align">Task Search</h3>
+</div>
 <div class="row container">
   <form id="search-form" class="col s12" method="POST">
     {% csrf_token %}
@@ -39,7 +45,7 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d-m-Y" }}</p>
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }}</p>
           <span class="card-title"><b>{{ task.task_title }}</b></span>
           <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
@@ -56,20 +62,19 @@
           </div>
           <div>
             <p><b>Date required</b></p>
-            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d-m-Y" }}</p>
+            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
           </div>
         </div>
-        <a href="{% url 'aider' task.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">person_add</i></a>
         <div class="card-action card-aider">
+            <a class="add-aider-btn btn-floating halfway-fab waves-effect waves-light pink-btn " data-href="{{ task.get_aider_api_url }}" href="">
+              <i class="material-icons">person_add</i>
+            </a>
           {% if task.aider %}
-            <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
-            <a class="pinkish" href="{% url 'aider' task.id %}"><i class="small material-icons">person</i>
-            </a>
+            <p class="pinkish assigned-aider"><b>Assigned Aider - {{ task.aider }}</b></p>
+            <i class="pinkish aider-icon small material-icons">person</i>
           {% else %}
-            <p><b>No Assigned Aider</b></p>
-            <a class="black-icon" href="{% url 'aider' task.id %}">
-              <i class="small material-icons">person_add</i> 
-            </a>
+            <p class="assigned-aider"><b>No Assigned Aider</b></p>
+            <i class="small aider-icon material-icons">person</i>
           {% endif %}
         </div>
         <div class="card-action">
@@ -107,5 +112,52 @@
       {% endif %}
   </span>
 </div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+  $(".add-aider-btn").click(function(e){
+    e.preventDefault();
+    var this_ = $(this)
+    var aiderUrl = this_.attr("data-href")
+    var aiderName = this_.siblings(".assigned-aider");
+    var aiderIcon = this_.siblings(".aider-icon");
+    console.log("*****");
+    console.log(aiderName);
+    console.log("*****");
+    $.ajax({
+      url: aiderUrl,
+      method: "GET",
+      data:{},
+      success: function(data) {
+        jQuery( document ).ready(function( $ ) {
+          if(data.aider != null && data.aider != "aider_assigned"){
+            aiderName[0].innerHTML = `<b>Assigned aider - ${data.aider}</b>`;
+            aiderName[0].classList.add("pinkish");
+            aiderIcon[0].classList.add("pinkish");
+            aiderName[0].classList.remove("slide-in-elliptic-left-fwd");
+            aiderIcon[0].classList.remove("slide-in-elliptic-left-fwd");
+            void aiderName[0].offsetWidth;
+            void aiderIcon[0].offsetWidth;
+            aiderName[0].classList.add("slide-in-elliptic-left-fwd");
+            aiderIcon[0].classList.add("slide-in-elliptic-left-fwd");
+          } else if(data.aider == "aider_assigned") {
+              $("#fixed-message").show().delay(5000).fadeOut();
+          } else {
+            aiderName[0].innerHTML = "<b>No Assigned Aider</b>";
+            aiderName[0].classList.remove("pinkish");
+            aiderIcon[0].classList.remove("pinkish");
+          }
+        });
+      }, error: function(error){
+        console.log(error)
+        console.log("error")
+      }
+    })
+  })
+
+</script>
 
 {% endblock %}

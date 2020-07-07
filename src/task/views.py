@@ -5,6 +5,11 @@ from django.views.generic import CreateView, DeleteView, UpdateView, ListView, V
 from django.db.models import Q
 from django.contrib import messages
 
+# Django REST
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+
 from .forms import TaskForm
 from .models import Task
 from dashboard.models import UserProfile
@@ -103,7 +108,7 @@ class SearchTaskView(LoginRequiredMixin, View):
         is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
         if is_aider:
             # Get tasks that are not done and user does not own them
-            tasks = Task.objects.filter(is_done=False).filter(~Q(user=user))
+            tasks = Task.objects.filter(is_done=False).filter(~Q(user=user)).order_by('-date_created')
             context = {
                 'tasks': tasks,
             }
@@ -120,7 +125,7 @@ class SearchTaskView(LoginRequiredMixin, View):
         is_aider = UserProfile.objects.filter(user_name=user, is_aider=True)
         if is_aider:
             # Get tasks that are not done and user does not own them plus or query from post
-            tasks = Task.objects.filter(post_code_q | city_q).filter(~Q(user=user))
+            tasks = Task.objects.filter(post_code_q | city_q).filter(~Q(user=user)).order_by('-date_created')
             context = {
                 'tasks': tasks,
             }
@@ -129,14 +134,19 @@ class SearchTaskView(LoginRequiredMixin, View):
             return redirect('task_list')
 
 
-class AssignAiderView(LoginRequiredMixin, RedirectView):
+class AssignAiderAPI(APIView):
     """
-    Assign a user, with toggle option
+    Api view for user aider toggle
+
+    * Requires token authentication.
+    * Only admin users are able to access this view.
     """
-    pattern_name = 'search_task'
-    def get_redirect_url(self, *args, **kwargs):
-        id_ = self.kwargs.get("pk")
-        obj = get_object_or_404(Task, id=id_)
+    authentication_classes = [authentication.SessionAuthentication]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+    def get(self, request, pk=None, format=None, **kwargs):
+        obj = get_object_or_404(Task, id=pk)
         user = self.request.user
         # Check if no aider is assign to the task
         # If user is assigned toggle him
@@ -144,10 +154,42 @@ class AssignAiderView(LoginRequiredMixin, RedirectView):
         if obj.aider == None:
             obj.aider = user
             obj.save()
+            data = {
+                    'aider': obj.aider.username,
+                }
         else:
             if obj.aider ==  user:
                 obj.aider = None
                 obj.save()
+                data = {
+                    'aider': None,
+                }
             else:
-                messages.error(self.request, f'Other Aider is assigned to this task!')
-        return super().get_redirect_url()
+                data = {
+                    'aider': 'aider_assigned',
+                }
+        return Response(data)
+
+
+class IsDoneAPI(APIView):
+    """
+    View for task is_done toggle
+
+    * Requires token authentication.
+    * Only admin users are able to access this view.
+    """
+    authentication_classes = [authentication.SessionAuthentication]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get(self, request, pk=None, format=None):
+        obj = get_object_or_404(Task, id=pk)
+        url_ = obj.get_absolute_url()
+        if obj.is_done == True:
+            obj.is_done = False
+        else:
+            obj.is_done = True
+        obj.save()
+        data = {
+            'is_done': obj.is_done,
+        }
+        return Response(data)

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 
 class TaskCategory(models.Model):
@@ -22,11 +23,14 @@ class Task(models.Model):
     time_required = models.TimeField(auto_now_add=False, blank=True, null=True)
     message_count = models.PositiveIntegerField(blank=False, null=False, default=0)
 
-    def get_aider_url(self):
-        return reverse('aider', kwargs={'id': self.id})
-    
+    def get_absolute_url(self):
+        return reverse('search_task')
+
     def get_aider_api_url(self):
-        return reverse('aider_api', kwargs={'id': self.id})
+        return reverse('aider_api', kwargs={'pk': self.id})
+
+    def get_is_done_api_url(self):
+        return reverse('is_done_api', kwargs={'pk': self.id})
 
     def __str__(self):
         return self.task_title

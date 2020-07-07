@@ -21,7 +21,7 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d-m-Y" }}</p>
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }}</p>
           <span class="card-title"><b>{{ task.task_title }}</b></span>
           <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
@@ -30,15 +30,31 @@
           <p>{{ task.description }}</p>
         </div>
         <div class="card-content">
-          <p><b >Description</b></p>
-          <p>{{ task.description }}</p>
+          <div>
+            <p><b>Date required</b></p>
+            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
+          </div>
         </div>
-        <div class="card-content">
-          <p><b>Date required</b></p>
-          <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d-m-Y" }}</p>
-        </div>
-        <a href="{% url 'delete_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light tooltipped red" ata-tooltip="Delete task"><i class="material-icons">delete</i></a>
-        <a style="margin-right: 70px;" href="{% url 'update_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+        <!-- Buttons -->
+        <a href="{% url 'delete_task' task.id %}" class="delete-btn btn-floating halfway-fab waves-effect waves-light tooltipped pink-btn " data-tooltip="Delete task" data-position="top">
+          <i class="material-icons">delete</i>
+        </a>
+        <a href="{% url 'update_task' task.id %}" class="edit-btn btn-floating halfway-fab waves-effect waves-light pink-btn tooltipped" data-tooltip="Edit task" data-position="top">
+          <i class="material-icons">edit</i>
+        </a>
+        <!-- Is done btn with api view -->
+        <a href="{% url 'update_task' task.id %}"
+         class="done-btn btn-floating halfway-fab waves-effect waves-light tooltipped
+         {% if task.is_done %}
+            is_done_pink
+         {% else %}
+            is_done_grey
+         {% endif %}
+         "
+         data-tooltip="Is it done?" data-position="top"
+         data-href="{{ task.get_is_done_api_url }}" href="{{ object.get_clap_url }}">
+          <i class="material-icons">done</i>
+        </a>
         <div class="card-action card-aider">
           {% if task.aider %}
             <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
@@ -87,7 +103,35 @@
   </span>
 </div>
 
+{% endblock %}
+
+{% block js %}
+
 <script>
-  var instance = M.Tooltip.getInstance(elem);
+  $(".done-btn").click(function(e){
+    e.preventDefault();
+    var this_ = $(this)
+    var doneUrl = this_.attr("data-href")
+    $.ajax({
+      url: doneUrl,
+      method: "GET",
+      data:{},
+      success: function(data) {
+        jQuery( document ).ready(function( $ ) {
+          if(data.is_done){
+            this_[0].style.backgroundColor = "#f06292";
+          } else {
+            this_[0].style.backgroundColor = "#cecece";
+          }
+        });
+      }, error: function(error){
+        console.log(error)
+        console.log("error")
+      }
+    })
+  })
+
+ 
 </script>
+
 {% endblock %}
