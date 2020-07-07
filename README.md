@@ -12,13 +12,21 @@ Hackerthon July 2020
 
 This web application is has been created by a team of coders working remotely to produce a quality online resource. The project will be submitted to a panel of expert to be judged as part of an online competition which is run regularly by the Institute. The idea is to give current and past students the valuable experience of working as a team.
 
-
-<u>**Concept</u>**
-
+**<u>Concept</u>** 
 
 To create an online resource for users who are self-isolating due to Covid-19, those who need care and people who can give care. The web application will allow someone to ask for assistance for tasks that they are unable to complete themselves. For example, Shopping, Fetching Prescriptions, Walking pets etc.
 
 The ability for volunteers to be able to offer their time and provide assistance in completing tasks for those requesting assistance. 
+
+**<u>Coding Process</u>** 
+
+We had an initial zoom meeting to introduce ourselves and decide on the concept for the project. After a short discussion, we split the team into Front-End, rear-end developers based on experience and individual preference.
+
+We started a Trello board to contain a breakdown of the tasks required to build the website. This would also include being able to allocate tasks to team members to avoid work duplication. 
+
+We decided to use GiHub as a store, working locally by creating branches from the master whilst working on the code and then pushing back to the master branch when completed. 
+
+During the project we have had a morning and evening zoom meeting to keep in touch, discussing any issues and allocating work to team members.  
 
 
 **<u>UI/UX</u>**
@@ -129,6 +137,8 @@ The form has been tested and works as planned.
 * Visual Studio Code
 * GitHub
 * GitPod
+* Zoom
+* Visual Studio Code
 
 
 
