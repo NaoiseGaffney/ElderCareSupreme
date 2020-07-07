@@ -36,18 +36,23 @@
           </div>
         </div>
         <!-- Buttons -->
-        <a id="delete-btn" href="{% url 'delete_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light tooltipped red" data-tooltip="Delete task" data-position="top">
+        <a href="{% url 'delete_task' task.id %}" class="delete-btn btn-floating halfway-fab waves-effect waves-light tooltipped pink-btn " data-tooltip="Delete task" data-position="top">
           <i class="material-icons">delete</i>
         </a>
-        <a id="edit-btn" style="margin-right: 70px;" href="{% url 'update_task' task.id %}" class="btn-floating halfway-fab waves-effect waves-light blue tooltipped" data-tooltip="Edit task" data-position="top">
+        <a href="{% url 'update_task' task.id %}" class="edit-btn btn-floating halfway-fab waves-effect waves-light pink-btn tooltipped" data-tooltip="Edit task" data-position="top">
           <i class="material-icons">edit</i>
         </a>
         <!-- Is done btn with api view -->
-        <a id="done-btn" style="margin-right: 140px;" href="{% url 'update_task' task.id %}"
-         class="btn-floating halfway-fab waves-effect waves-light tooltipped"
+        <a href="{% url 'update_task' task.id %}"
+         class="done-btn btn-floating halfway-fab waves-effect waves-light tooltipped
+         {% if task.is_done %}
+            is_done_pink
+         {% else %}
+            is_done_grey
+         {% endif %}
+         "
          data-tooltip="Is it done?" data-position="top"
-         data-href="{{ task.get_is_done_api_url }}" href="{{ object.get_clap_url }}"
-         onclick="clapJolly()">
+         data-href="{{ task.get_is_done_api_url }}" href="{{ object.get_clap_url }}">
           <i class="material-icons">done</i>
         </a>
         <div class="card-action card-aider">
@@ -98,7 +103,35 @@
   </span>
 </div>
 
+{% endblock %}
+
+{% block js %}
+
 <script>
-  var instance = M.Tooltip.getInstance(elem);
+  $(".done-btn").click(function(e){
+    e.preventDefault();
+    var this_ = $(this)
+    var doneUrl = this_.attr("data-href")
+    $.ajax({
+      url: doneUrl,
+      method: "GET",
+      data:{},
+      success: function(data) {
+        jQuery( document ).ready(function( $ ) {
+          if(data.is_done){
+            this_[0].style.backgroundColor = "#f06292";
+          } else {
+            this_[0].style.backgroundColor = "#cecece";
+          }
+        });
+      }, error: function(error){
+        console.log(error)
+        console.log("error")
+      }
+    })
+  })
+
+ 
 </script>
+
 {% endblock %}

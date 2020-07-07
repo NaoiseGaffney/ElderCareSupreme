@@ -145,7 +145,7 @@ class AssignAiderAPI(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-    def get(self, request, pk, format=None, **kwargs):
+    def get(self, request, pk=None, format=None, **kwargs):
         obj = get_object_or_404(Task, id=pk)
         user = self.request.user
         # Check if no aider is assign to the task
@@ -178,13 +178,16 @@ class IsDoneAPI(APIView):
     * Requires token authentication.
     * Only admin users are able to access this view.
     """
-    authentication_classes = [authentication.TokenAuthentication]
+    authentication_classes = [authentication.SessionAuthentication]
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def get(self, request, id=None, format=None):
-        obj = get_object_or_404(Task, id=id)
+    def get(self, request, pk=None, format=None):
+        obj = get_object_or_404(Task, id=pk)
         url_ = obj.get_absolute_url()
-        obj.is_done = True
+        if obj.is_done == True:
+            obj.is_done = False
+        else:
+            obj.is_done = True
         obj.save()
         data = {
             'is_done': obj.is_done,

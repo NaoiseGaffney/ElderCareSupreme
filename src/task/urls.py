@@ -12,6 +12,5 @@ urlpatterns = [
     path('delete_task/<int:pk>', DeleteTaskView.as_view(), name='delete_task'),
     path('search_task', SearchTaskView.as_view(), name='search_task'),
     path('api/post/<int:pk>/aider/', AssignAiderAPI.as_view(), name='aider_api'),
-    # path('is_done/<int:pk>', AssignAiderView.as_view(), name='is_done'),
     path('api/post/<int:pk>/is_done/', IsDoneAPI.as_view(), name='is_done_api'),
 ]

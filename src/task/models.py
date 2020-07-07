@@ -29,9 +29,6 @@ class Task(models.Model):
     def get_aider_api_url(self):
         return reverse('aider_api', kwargs={'pk': self.id})
 
-    def get_is_done_url(self):
-        return reverse('is_done', kwargs={'pk': self.id})
-
     def get_is_done_api_url(self):
         return reverse('is_done_api', kwargs={'pk': self.id})
 
