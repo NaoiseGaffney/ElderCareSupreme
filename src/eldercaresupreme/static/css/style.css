@@ -20,6 +20,10 @@ header {
   padding-bottom: 1.5rem;
 }
 
+h5, h5 + p {
+  padding-bottom: 1rem;
+}
+
 /* Materialze 1.0.0 Modifications and Overrides */
 /* Messages Pop up */
 

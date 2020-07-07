@@ -39,3 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     twelveHour: false,
   });
 });
+
+// Tool tips
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.tooltipped');
+  var instances = M.Tooltip.init(elems);
+});
