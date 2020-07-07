@@ -5,7 +5,9 @@
 | Create Task
 {% endblock %}
 {% block content %}
+<div class="container">
 
+<<<<<<< HEAD
 
 Create Task
 <form action="" method="POST">
@@ -20,4 +22,20 @@ Create Task
   </button>
 </form>
 
+=======
+  Create Task
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.task_title|materializecss }}
+    {{ form.category|materializecss }}
+    <div class="tooltip"><label for="description">Description:</label><span class="tooltiptext">Please describe your task requirements in greater detail.</span></div>
+    <textarea id="id_description" class="materialize-textarea" name="description" cols="40" rows="10" maxlength="300" spellcheck="false"></textarea>
+    <div class="tooltip"><label for="date">Date required:</label><span class="tooltiptext">Please select a date for your task.</span></div>
+    <input id="id_date_required" name="date_required" type="text" class="datepicker no-autoinit">
+    <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER" value="SUBMIT">Submit<i
+        class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+>>>>>>> 60d4621db0fd726aeff7d6e4f0cf84a060b1ade6
 {% endblock %}
