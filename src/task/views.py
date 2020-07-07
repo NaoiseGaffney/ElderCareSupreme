@@ -134,30 +134,6 @@ class SearchTaskView(LoginRequiredMixin, View):
             return redirect('task_list')
 
 
-class AssignAiderView(LoginRequiredMixin, RedirectView):
-    """
-    Assign a user, with toggle option
-    """
-    pattern_name = 'search_task'
-    def get_redirect_url(self, *args, **kwargs):
-        id_ = self.kwargs.get("pk")
-        obj = get_object_or_404(Task, id=id_)
-        user = self.request.user
-        # Check if no aider is assign to the task
-        # If user is assigned toggle him
-        # and if someone else is assign throw error message
-        if obj.aider == None:
-            obj.aider = user
-            obj.save()
-        else:
-            if obj.aider ==  user:
-                obj.aider = None
-                obj.save()
-            else:
-                messages.error(self.request, f'Other Aider is assigned to this task!')
-        return super().get_redirect_url()
-
-
 class AssignAiderAPI(APIView):
     """
     Api view for user aider toggle
@@ -189,7 +165,6 @@ class AssignAiderAPI(APIView):
                     'aider': None,
                 }
             else:
-                messages.error(self.request, f'Other Aider is assigned to this task!')
                 data = {
                     'aider': 'aider_assigned',
                 }

@@ -26,9 +26,6 @@ class Task(models.Model):
     def get_absolute_url(self):
         return reverse('search_task')
 
-    def get_aider_url(self):
-        return reverse('aider', kwargs={'pk': self.id})
-
     def get_aider_api_url(self):
         return reverse('aider_api', kwargs={'pk': self.id})
 
