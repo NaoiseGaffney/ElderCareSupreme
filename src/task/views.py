@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, DeleteView, UpdateView, ListView, View, RedirectView
 from django.db.models import Q
 from django.contrib import messages
+from django.utils import timezone
 
 # Django REST
 from rest_framework.views import APIView
@@ -90,6 +91,7 @@ class UpdateTaskView(LoginRequiredMixin, UpdateView):
         print(self.request.user)
         instance = form.save(commit=False)
         instance.user = self.request.user
+        instance.date_created = timezone.now()
         instance.save()
         messages.success(self.request, 
                              f'Your task was updated!')
