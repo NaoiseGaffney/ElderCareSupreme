@@ -75,6 +75,20 @@ h5+p {
   padding-left: 0;
 }
 
+/* Login */
+.login-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-btn-wrapper div:first-child {
+  display: flex;
+}
+
+.login-btn-wrapper button {
+  margin: 0 10px 10px 0;
+}
+
 /* Chat messages */
 #chat-message-form {
   position: fixed;
@@ -274,7 +288,6 @@ h5+p {
     opacity: 1;
   }
 }
-
 
 /* Dashboard */
 #dashboard {
@@ -500,4 +513,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .btn-floating:hover {
   background-color: purple;
+}
+
+@media only screen and (max-width: 520px) {
+  .login-btn-wrapper div:first-child {
+    display: flex;
+    flex-direction: column;
+  }
 }
