@@ -642,6 +642,9 @@ textarea.materialize-textarea:focus:not([readonly]) {
 @media only screen and (max-width: 635px) {
   .intro-text {
     font-size: 1.2rem;
+    width: 100%;
+    padding: 0 2px;
+    font-weight: 600;
   }
 }
 
@@ -654,13 +657,18 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 @media only screen and (max-width: 500px) {
   .intro-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  #index h3 {
+    font-size: 1.8rem;
   }
 }
 
 @media only screen and (max-width: 380px) {
   .intro-text {
     font-size: 0.7rem;
+    font-weight: 400;
   }
 }
 
