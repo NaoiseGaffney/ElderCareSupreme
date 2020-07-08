@@ -54,14 +54,13 @@
         <i class="material-icons">edit</i>
       </a>
       <!-- Is done btn with api view -->
-      <a href="{% url 'update_task' task.id %}" class="done-btn btn-floating halfway-fab waves-effect waves-light tooltipped
+      <a class="done-btn btn-floating halfway-fab waves-effect waves-light tooltipped
          {% if task.is_done %}
             is_done_pink
          {% else %}
             is_done_grey
          {% endif %}
-         " data-tooltip="Is it done?" data-position="top" data-href="{{ task.get_is_done_api_url }}"
-        href="{{ object.get_clap_url }}">
+         " data-tooltip="Is it done?" data-position="top" data-href="{{ task.get_is_done_api_url }}">
         <i class="material-icons">done</i>
       </a>
       <div class="card-action card-aider">
@@ -138,6 +137,6 @@
 
 {% block js %}
 
-<script src="js/ajax_mytask.js"></script>
+<script src="{% static 'js/ajax_mytask.js' %}"></script>
 
 {% endblock %}
