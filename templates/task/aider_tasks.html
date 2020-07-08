@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-| Search Task
+| Aider Tasks
 {% endblock %}
 
 {% block content %}
@@ -88,19 +88,37 @@
   <div class="row container center-align">
     <ul class="pagination">
       {% if page_obj.has_previous %}
-          <li class="pagination-arrow  waves-effect"><a href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
-          <li class="waves-effect"><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+          <li class="pagination-arrow  waves-effect">
+            <a href="?page={{ page_obj.previous_page_number }}">
+              <i class="material-icons">chevron_left</i>
+            </a>
+          </li>
+          <li class="waves-effect">
+            <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+          </li>
       {% else %}
-          <li class="disabled pagination-arrow"><i class="material-icons">chevron_left</i></a></li>
+          <li class="disabled pagination-arrow">
+            <i class="material-icons">chevron_left</i>
+          </li>
       {% endif %}
       <span class="current">
-        <li class="active"><a href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+        <li class="active">
+          <a href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+        </li>
       </span>
       {% if page_obj.has_next %}
-          <li class="waves-effect"><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
-          <li class="waves-effect pagination-arrow"><a href="?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+          <li class="waves-effect">
+            <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+          </li>
+          <li class="waves-effect pagination-arrow">
+            <a href="?page={{ page_obj.next_page_number }}">
+              <i class="material-icons">chevron_right</i>
+            </a>
+          </li>
       {% else %}
-          <li class="disabled pagination-arrow"><i class="material-icons">chevron_right</i></a></li>
+          <li class="disabled pagination-arrow">
+            <i class="material-icons">chevron_right</i>
+          </li>
       {% endif %}
     </ul>
   </div>

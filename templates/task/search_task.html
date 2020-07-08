@@ -106,19 +106,37 @@
   <div class="row container center-align">
     <ul class="pagination">
       {% if tasks.has_previous %}
-          <li class="pagination-arrow  waves-effect"><a href="?page={{ tasks.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
-          <li class="waves-effect"><a href="?page={{ tasks.previous_page_number }}">{{ tasks.previous_page_number }}</a></li>
+          <li class="pagination-arrow  waves-effect">
+            <a href="?page={{ tasks.previous_page_number }}">
+              <i class="material-icons">chevron_left</i>
+            </a>
+          </li>
+          <li class="waves-effect">
+            <a href="?page={{ tasks.previous_page_number }}">{{ tasks.previous_page_number }}</a>
+          </li>
       {% else %}
-          <li class="disabled pagination-arrow"><i class="material-icons">chevron_left</i></a></li>
+          <li class="disabled pagination-arrow">
+            <i class="material-icons">chevron_left</i>
+          </li>
       {% endif %}
       <span class="current">
-        <li class="active"><a href="?page={{ tasks.number }}">{{ tasks.number }}</a></li>
+        <li class="active">
+          <a href="?page={{ tasks.number }}">{{ tasks.number }}</a>
+        </li>
       </span>
       {% if tasks.has_next %}
-          <li class="waves-effect"><a href="?page={{ tasks.next_page_number }}">{{ tasks.next_page_number }}</a></li>
-          <li class="waves-effect pagination-arrow"><a href="?page={{ tasks.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+          <li class="waves-effect">
+            <a href="?page={{ tasks.next_page_number }}">{{ tasks.next_page_number }}</a>
+          </li>
+          <li class="waves-effect pagination-arrow">
+            <a href="?page={{ tasks.next_page_number }}">
+              <i class="material-icons">chevron_right</i>
+            </a>
+          </li>
       {% else %}
-          <li class="disabled pagination-arrow"><i class="material-icons">chevron_right</i></a></li>
+          <li class="disabled pagination-arrow">
+            <i class="material-icons">chevron_right</i>
+          </li>
       {% endif %}
     </ul>
   </div>
@@ -129,47 +147,6 @@
 
 {% block js %}
 
-<script>
-  $(".add-aider-btn").click(function(e){
-    e.preventDefault();
-    var this_ = $(this)
-    var aiderUrl = this_.attr("data-href")
-    var aiderName = this_.siblings(".assigned-aider");
-    var aiderIcon = this_.siblings(".aider-icon");
-    console.log("*****");
-    console.log(aiderName);
-    console.log("*****");
-    $.ajax({
-      url: aiderUrl,
-      method: "GET",
-      data:{},
-      success: function(data) {
-        jQuery( document ).ready(function( $ ) {
-          if(data.aider != null && data.aider != "aider_assigned"){
-            aiderName[0].innerHTML = `<b>Assigned aider - ${data.aider}</b>`;
-            aiderName[0].classList.add("pinkish");
-            aiderIcon[0].classList.add("pinkish");
-            aiderName[0].classList.remove("slide-in-elliptic-left-fwd");
-            aiderIcon[0].classList.remove("slide-in-elliptic-left-fwd");
-            void aiderName[0].offsetWidth;
-            void aiderIcon[0].offsetWidth;
-            aiderName[0].classList.add("slide-in-elliptic-left-fwd");
-            aiderIcon[0].classList.add("slide-in-elliptic-left-fwd");
-          } else if(data.aider == "aider_assigned") {
-              $("#fixed-message").show().delay(5000).fadeOut();
-          } else {
-            aiderName[0].innerHTML = "<b>No Assigned Aider</b>";
-            aiderName[0].classList.remove("pinkish");
-            aiderIcon[0].classList.remove("pinkish");
-          }
-        });
-      }, error: function(error){
-        console.log(error)
-        console.log("error")
-      }
-    })
-  })
-
-</script>
+<script src="{% static 'js/ajax_aider.js' %}"></script>
 
 {% endblock %}
