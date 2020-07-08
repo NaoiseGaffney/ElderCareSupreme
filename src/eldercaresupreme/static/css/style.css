@@ -152,6 +152,12 @@ h5, h5 + p {
   color: #f06292;
 }
 
+.card-category i {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
 .black-icon {
   color: #000 !important;
 }
