@@ -50,7 +50,7 @@
 {% for task in tasks %}
   <div class="row container">
     <div class="col s12 m12">
-      <div class="card">
+      <div class="card" data-aos="fade-right" data-aos-duration="1400" data-aos-anchor-placement="top-bottom">
         <div class="card-content">
           <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }} - {{task.user.get_username}}</p>
           <span class="card-title"><b>{{ task.task_title }}</b></span>
@@ -148,5 +148,7 @@
 {% block js %}
 
 <script src="{% static 'js/ajax_aider.js' %}"></script>
-
+<script>
+  AOS.init();
+</script>
 {% endblock %}
