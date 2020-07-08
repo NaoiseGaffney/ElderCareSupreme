@@ -207,13 +207,8 @@ h5+p {
 }
 
 .is_done_grey {
-<<<<<<< HEAD
   background-color: #cecece;
-}
-=======
-  background-color: #cecece !important;
 } 
->>>>>>> 93689823f4e385f82842a2d25db6d844b5bfafda
 
 .done-btn {
   margin-right: 140px;
