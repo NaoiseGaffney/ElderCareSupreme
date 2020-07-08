@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="breadcrumb-wrapper row container">
+  <div class="col s12">
+    <a href="{% url 'index' %}" class="breadcrumb">Home</a>
+    <a href="{% url 'dashboard' %}" class="breadcrumb">Dashboard</a>
+    <a class="breadcrumb breadcrumb-current">My Tasks</a>
+  </div>
+</div>
 
 <!-- Message -->
 {% include 'partials/_messages.html' %}

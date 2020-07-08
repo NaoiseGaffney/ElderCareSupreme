@@ -5,6 +5,14 @@
 | Create Task
 {% endblock %}
 {% block content %}
+<div class="breadcrumb-wrapper row container">
+  <div class="col s12">
+    <a href="{% url 'index' %}" class="breadcrumb">Home</a>
+    <a href="{% url 'dashboard' %}" class="breadcrumb">Dashboard</a>
+    <a href="{% url 'task_list' %}" class="breadcrumb">My Tasks</a>
+    <a class="breadcrumb breadcrumb-current">Create Task</a>
+  </div>
+</div>
 {% include "partials/_django_messages.html" %}
 <div class="container">
   <h5>Create Task</h5>

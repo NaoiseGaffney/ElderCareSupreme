@@ -24,7 +24,6 @@ h5, h5 + p {
   padding-bottom: 1rem;
 }
 
-/* Materialze 1.0.0 Modifications and Overrides */
 /* Messages Pop up */
 
 .success-message {
@@ -49,6 +48,30 @@ h5, h5 + p {
   color: white;
   font-size: 1rem;
   font-weight: 600;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  color: #f06292;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.breadcrumb::before {
+  color: #f06292;
+  margin-top: -8px;
+}
+
+.breadcrumb-current {
+  color: #000 !important;
+}
+
+.breadcrumb-wrapper {
+  padding-left: 0;
+}
+
+.breadcrumb-wrapper > .col.s12 {
+  padding-left: 0;
 }
 
 /* Chat messages */
@@ -183,7 +206,7 @@ h5, h5 + p {
 }
 
 .is_done_grey {
-  background-color: #cecece;
+  background-color: #cecece !important;
 } 
 
 .done-btn {
