@@ -5,6 +5,7 @@ from django.views.generic import CreateView, DeleteView, UpdateView, ListView, V
 from django.db.models import Q
 from django.contrib import messages
 from django.utils import timezone
+from django.core.exceptions import ObjectDoesNotExist
 
 # Django REST
 from rest_framework.views import APIView
@@ -39,6 +40,18 @@ class CreateTaskView(LoginRequiredMixin ,CreateView):
     form_class = TaskForm
     success_url = 'task_list'
 
+    def get(self, request, *args, **kwargs):
+        # Make sure that user first fill required forms, before create a task
+        user = self.request.user
+        try:
+            user_profile = UserProfile.objects.get(user_name=user)
+            if user_profile.city == None or user_profile.post_code == None:
+                return redirect('update_user_profile', pk=user.id)
+            else:
+                return render(request, self.template_name, {'form':self.form_class})
+        except ObjectDoesNotExist:
+            user_profile = UserProfile.objects.create(user_name=user)
+            return redirect('update_user_profile', pk=user.id)
 
     def form_valid(self, form):
         instance = form.save(commit=False)

@@ -45,7 +45,7 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }}</p>
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }} - {{task.user.get_username}}</p>
           <span class="card-title"><b>{{ task.task_title }}</b></span>
           <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
         </div>
