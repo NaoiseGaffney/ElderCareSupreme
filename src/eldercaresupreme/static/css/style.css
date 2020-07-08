@@ -25,7 +25,6 @@ h5+p {
   padding-bottom: 1rem;
 }
 
-/* Materialze 1.0.0 Modifications and Overrides */
 /* Messages Pop up */
 
 .success-message {
@@ -50,6 +49,30 @@ h5+p {
   color: white;
   font-size: 1rem;
   font-weight: 600;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  color: #f06292;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.breadcrumb::before {
+  color: #f06292;
+  margin-top: -8px;
+}
+
+.breadcrumb-current {
+  color: #000 !important;
+}
+
+.breadcrumb-wrapper {
+  padding-left: 0;
+}
+
+.breadcrumb-wrapper > .col.s12 {
+  padding-left: 0;
 }
 
 /* Chat messages */
@@ -153,6 +176,12 @@ h5+p {
   color: #f06292;
 }
 
+.card-category i {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
 .black-icon {
   color: #000 !important;
 }
@@ -178,8 +207,13 @@ h5+p {
 }
 
 .is_done_grey {
+<<<<<<< HEAD
   background-color: #cecece;
 }
+=======
+  background-color: #cecece !important;
+} 
+>>>>>>> 93689823f4e385f82842a2d25db6d844b5bfafda
 
 .done-btn {
   margin-right: 140px;
@@ -280,6 +314,36 @@ label.active {
 
 #matnavbar {
   color: #f06292;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .active {
+  background-color: #f06292 !important;
+}
+
+.pagination li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 30px;
+}
+
+.pagination-arrow > a {
+  position: relative;
+  top: 4px;
+}
+
+.pagination-arrow > i {
+  position: relative;
+  top: 0;
 }
 
 /* Modal Colour Schemes to Match Elder Care Supreme UX Design */

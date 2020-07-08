@@ -3,8 +3,15 @@
 {% block title %}
 | Task
 {% endblock %}
-
 {% block content %}
+<div class="breadcrumb-wrapper row container">
+  <div class="col s12">
+    <a href="{% url 'index' %}" class="breadcrumb">Home</a>
+    <a href="{% url 'dashboard' %}" class="breadcrumb">Dashboard</a>
+    <a href="{% url 'search_task' %}" class="breadcrumb">Search Task</a>
+    <a class="breadcrumb breadcrumb-current">Messages</a>
+  </div>
+</div>
 <div id="chat-messages-wrapper" class="row container">
   {% for message in get_messages %}
     <div class="chip

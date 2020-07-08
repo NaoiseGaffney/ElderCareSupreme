@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.contrib import messages
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator
 
 # Django REST
 from rest_framework.views import APIView
@@ -116,7 +117,6 @@ class SearchTaskView(LoginRequiredMixin, View):
     Search task page class view
     """
     template_name = 'task/search_task.html'
-    paginate_by = 10
 
     def get(self, request, *args, **kwargs):
         user = self.request.user
@@ -125,8 +125,11 @@ class SearchTaskView(LoginRequiredMixin, View):
         if is_aider:
             # Get tasks that are not done and user does not own them
             tasks = Task.objects.filter(is_done=False).filter(~Q(user=user)).order_by('-date_created')
+            paginator = Paginator(tasks, 10)
+            page = request.GET.get('page')
+            paged_products = paginator.get_page(page)
             context = {
-                'tasks': tasks,
+                'tasks': paged_products,
             }
             return render(request, self.template_name, context)
         else:
