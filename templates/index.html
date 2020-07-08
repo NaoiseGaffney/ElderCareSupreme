@@ -8,28 +8,45 @@
 {% include 'partials/_messages.html' %}
 <div class="container">
   <div class="row center-align">
-    <h2>Welcome to</h2>
-    <h3>Elder Care Supreme!</h3>
+    <h3>Welcome to Elder Care Supreme!</h3>
     <img src="/static/images/PinkHeartNoBackground.png" class="heart-img" alt="heart">
-    <p class="intro-text">
-      We have created this page to bring together people who would like help with chores and aides who can help out.<br>
-      Have you reached an age when certain chores aren't as easy as they used to be? Would you like some help with these chores?<br>
-      Maybe you don't have any problem doing chores, and you even have some time that you would like to spend helping an elderly?<br>
-      Then you've found the right page!<br>
-      <br>
-      At the bottom of this page, there is a "register" button that you can use to create an account.<br>
-      Or, if you've already got an account, you can use the "login" button.<br>
-      Then, if you would like some help, you can take a look at the dashboard and add tasks you would like help with.<br>
-      Otherwise, if you would like to help someone, you can take a look at possible chores and let people know you would like to help them.<br>
-      <br>
-      So, sign up or log in, and take a look around!
+    <p class="intro-text flow-text">
+      Elder Care Supreme is a service for the elderly requiring help with daily chores, aided by volunteers who have the
+      ability to provide the necessary professional services.
     </p>
-    <a href="{% url 'login' %}" class="btn waves-effect waves-light pink lighten-2 intro-btn">Login
-      <i class="material-icons">login</i>
-    </a>
-    <a href="{% url 'register' %}" class="btn waves-effect waves-light pink lighten-2 intro-btn">Register
-      <i class="material-icons">how_to_reg</i>
-    </a>
+    <a class="btn waves-effect waves-light pink lighten-2 modal-trigger" href="#help">Help<i
+        class="material-icons right">contact_support</i></a>
   </div>
 </div>
+<aside>
+  <div class="container">
+    <div id="help" class="modal">
+      <div class="modal-content">
+        <h4>Instructions</h4>
+        <p>The Elder Care Supreme application enables you to ask for help with your daily chores.</p><br>
+        <p>To access your dashboard, to add and select the daily tasks you want help with, please login on this page
+          using your 'Username' and 'Password' that you created when you registered your account.</p><br>
+        <p>If you do not have an account, please register clicking on the 'Register' button on the top right of this
+          page. When you register, please provide the following details:
+        <ul class="modal-list">
+          <li>Your 'Username', whatever you wish to call yourself.</li>
+          <li>Your 'First name', so we can address you properly when helping you with your daily tasks.</li>
+          <li>Your 'E-mail' address, to communicate with you, and also used for password reset in case you have
+            forgotten your password.</li>
+          <li>Your 'Password', used togther wiht your 'Username' to access your dashboard of daily tasks.</li>
+          <li>Please confirm your password by entering it again in 'Password confirmation'.</li>
+          <li>When you are ready, click on the 'Register' button to login with your 'Username' and 'Password'.</li>
+        </ul>
+        </p><br>
+        <p>Your dashboard contains a selection of common daily tasks that you may want help with. You can add your own
+          tasks too. Select the task you need help with, fill out the details and...</p><br>
+        <p>When you are done, you may 'Logout' from this application.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn waves-effect waves-light pink lighten-2">I Understand<i
+            class="material-icons right">thumb_up</i></a>
+      </div>
+    </div>
+  </div>
+</aside>
 {% endblock %}
