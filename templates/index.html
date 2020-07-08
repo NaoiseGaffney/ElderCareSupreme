@@ -6,18 +6,21 @@
 
 <!-- Message -->
 {% include 'partials/_messages.html' %}
-<div class="container">
-  <div class="row center-align">
-    <h3>Welcome to Elder Care Supreme!</h3>
-    <img src="/static/images/PinkHeartNoBackground.png" class="heart-img" alt="heart">
-    <p class="intro-text flow-text">
-      Elder Care Supreme is a service for the elderly requiring help with daily chores, aided by volunteers who have the
-      ability to provide the necessary professional services.
-    </p>
-    <a class="btn waves-effect waves-light pink lighten-2 modal-trigger" href="#help">Help<i
-        class="material-icons right">contact_support</i></a>
+<section id="index">
+  <div class="center-align">
+    <h3>Welcome to <span>Elder Care Supreme!</span> </h3>
   </div>
-</div>
+  <div class="center-align" data-aos="zoom-in" data-aos-anchor-placement="center-bottom" data-aos-duration="2800">
+    <img id="heart" src="/static/images/PinkHeartNoBackground.png" class="heart-img" alt="heart">
+  </div>
+  <div class="intro-text center-align">
+    <p data-aos="fade-up" data-aos-duration="1400" data-aos-anchor-placement="center-bottom">Elder Care Supreme is a service for the elderly requiring help with </p>
+    <p data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">daily chores, aided by volunteers who have the ability to provide</p> 
+    <p data-aos="fade-up" data-aos-duration="2600" data-aos-anchor-placement="center-bottom">the necessary professional services.</p> 
+  </div>
+  <a id="index-help" data-aos="fade-up" data-aos-duration="2800" data-aos-anchor-placement="center-bottom" class="btn waves-effect waves-light pink lighten-2 modal-trigger" href="#help">Help<i
+      class="material-icons right">contact_support</i></a>
+</section>
 <aside>
   <div class="container">
     <div id="help" class="modal">
@@ -49,4 +52,14 @@
     </div>
   </div>
 </aside>
+{% endblock %}
+
+{% block js %}
+<script>
+  setTimeout(function() {
+    var heart = $("#heart");
+    heart.addClass("heartbeat") 
+  }, 2700);
+  AOS.init();
+</script>
 {% endblock %}
