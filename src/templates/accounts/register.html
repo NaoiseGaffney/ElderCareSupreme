@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% include "partials/_django_messages.html" %}
 <div class="row container">
   <form method="post">
     {% csrf_token %}

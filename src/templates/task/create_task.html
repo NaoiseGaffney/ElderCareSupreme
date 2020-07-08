@@ -5,8 +5,8 @@
 | Create Task
 {% endblock %}
 {% block content %}
+{% include "partials/_django_messages.html" %}
 <div class="container">
-
   <h5>Create Task</h5>
   <form action="" method="POST">
     {% csrf_token %}
