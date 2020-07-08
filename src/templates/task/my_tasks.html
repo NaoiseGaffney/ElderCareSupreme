@@ -9,97 +9,99 @@
 <!-- Message -->
 {% include 'partials/_messages.html' %}
 
-<div class="row">
-  <div class="container center-align">
-    <h5 class="center-align">My tasks</h5>
-    <a href="{% url 'create_task' %}" class="waves-effect waves-light btn">add task</a>
+<div class="row container">
+  <h5>My Tasks</h5>
+  <div class="center-align">
+    <a href="{% url 'create_task' %}" class="pink lighten-2 waves-effect waves-light btn">add task</a>
   </div>
 </div>
 
 {% for task in tasks %}
-  <div class="row container">
-    <div class="col s12 m12">
-      <div class="card">
-        <div class="card-content">
-          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }}</p>
-          <span class="card-title"><b>{{ task.task_title }}</b></span>
-          <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
+<div class="row container">
+  <div class="col s12 m12">
+    <div class="card">
+      <div class="card-content">
+        <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }}</p>
+        <span class="card-title"><b>{{ task.task_title }}</b></span>
+        <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
+      </div>
+      <div class="card-content">
+        <p><b>Description</b></p>
+        <p>{{ task.description }}</p>
+      </div>
+      <div class="card-content">
+        <div>
+          <p><b>Date required</b></p>
+          <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
         </div>
-        <div class="card-content">
-          <p><b >Description</b></p>
-          <p>{{ task.description }}</p>
-        </div>
-        <div class="card-content">
-          <div>
-            <p><b>Date required</b></p>
-            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
-          </div>
-        </div>
-        <!-- Buttons -->
-        <a href="{% url 'delete_task' task.id %}" class="delete-btn btn-floating halfway-fab waves-effect waves-light tooltipped pink-btn " data-tooltip="Delete task" data-position="top">
-          <i class="material-icons">delete</i>
-        </a>
-        <a href="{% url 'update_task' task.id %}" class="edit-btn btn-floating halfway-fab waves-effect waves-light pink-btn tooltipped" data-tooltip="Edit task" data-position="top">
-          <i class="material-icons">edit</i>
-        </a>
-        <!-- Is done btn with api view -->
-        <a href="{% url 'update_task' task.id %}"
-         class="done-btn btn-floating halfway-fab waves-effect waves-light tooltipped
+      </div>
+      <!-- Buttons -->
+      <a href="{% url 'delete_task' task.id %}"
+        class="delete-btn btn-floating halfway-fab waves-effect waves-light tooltipped pink-btn "
+        data-tooltip="Delete task" data-position="top">
+        <i class="material-icons">delete</i>
+      </a>
+      <a href="{% url 'update_task' task.id %}"
+        class="edit-btn btn-floating halfway-fab waves-effect waves-light pink-btn tooltipped" data-tooltip="Edit task"
+        data-position="top">
+        <i class="material-icons">edit</i>
+      </a>
+      <!-- Is done btn with api view -->
+      <a href="{% url 'update_task' task.id %}" class="done-btn btn-floating halfway-fab waves-effect waves-light tooltipped
          {% if task.is_done %}
             is_done_pink
          {% else %}
             is_done_grey
          {% endif %}
-         "
-         data-tooltip="Is it done?" data-position="top"
-         data-href="{{ task.get_is_done_api_url }}" href="{{ object.get_clap_url }}">
-          <i class="material-icons">done</i>
+         " data-tooltip="Is it done?" data-position="top" data-href="{{ task.get_is_done_api_url }}"
+        href="{{ object.get_clap_url }}">
+        <i class="material-icons">done</i>
+      </a>
+      <div class="card-action card-aider">
+        {% if task.aider %}
+        <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
+        <a class="pinkish"><i class="small material-icons">person</i>
         </a>
-        <div class="card-action card-aider">
-          {% if task.aider %}
-            <p><b class="pinkish">Assigned Aider - {{ task.aider }}</b></p>
-            <a class="pinkish"><i class="small material-icons">person</i>
-            </a>
-          {% else %}
-            <p><b>No Assigned Aider</b></p>
-            <a class="black-icon">
-              <i class="small material-icons">person_add</i> 
-            </a>
-          {% endif %}
-        </div>
-        <div class="card-action">
-          {% if task.message_count == 0 %}
-            <p><b>Messages</b></p>
-            <a class="black-icon" href="{% url 'message' task.id %}#chat-bottom">
-              <i class="small material-icons">message</i>
-            </a>
-          {% else %}
-            <p class="pinkish"><b>Messages</b></p>
-            <a class="pinkish" href="{% url 'message' task.id %}#chat-bottom">
-              <i class="small material-icons">message</i> <b>{{ task.message_count }}</b>
-            </a>
-          {% endif %}
-        </div>
+        {% else %}
+        <p><b>No Assigned Aider</b></p>
+        <a class="black-icon">
+          <i class="small material-icons">person_add</i>
+        </a>
+        {% endif %}
+      </div>
+      <div class="card-action">
+        {% if task.message_count == 0 %}
+        <p><b>Messages</b></p>
+        <a class="black-icon" href="{% url 'message' task.id %}#chat-bottom">
+          <i class="small material-icons">message</i>
+        </a>
+        {% else %}
+        <p class="pinkish"><b>Messages</b></p>
+        <a class="pinkish" href="{% url 'message' task.id %}#chat-bottom">
+          <i class="small material-icons">message</i> <b>{{ task.message_count }}</b>
+        </a>
+        {% endif %}
       </div>
     </div>
   </div>
+</div>
 {% endfor %}
 
 <div class="pagination">
   <span class="step-links">
-      {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-      {% endif %}
+    {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
 
-      <span class="current">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-      </span>
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
 
-      {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-      {% endif %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">next</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
   </span>
 </div>
 
@@ -108,30 +110,30 @@
 {% block js %}
 
 <script>
-  $(".done-btn").click(function(e){
+  $(".done-btn").click(function (e) {
     e.preventDefault();
     var this_ = $(this)
     var doneUrl = this_.attr("data-href")
     $.ajax({
       url: doneUrl,
       method: "GET",
-      data:{},
-      success: function(data) {
-        jQuery( document ).ready(function( $ ) {
-          if(data.is_done){
+      data: {},
+      success: function (data) {
+        jQuery(document).ready(function ($) {
+          if (data.is_done) {
             this_[0].style.backgroundColor = "#f06292";
           } else {
             this_[0].style.backgroundColor = "#cecece";
           }
         });
-      }, error: function(error){
+      }, error: function (error) {
         console.log(error)
         console.log("error")
       }
     })
   })
 
- 
+
 </script>
 
 {% endblock %}
