@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+| Search Task
+{% endblock %}
+
+{% block content %}
+<div class="breadcrumb-wrapper row container">
+  <div class="col s12">
+    <a href="{% url 'index' %}" class="breadcrumb">Home</a>
+    <a href="{% url 'dashboard' %}" class="breadcrumb">Dashboard</a>
+    <a class="breadcrumb breadcrumb-current">Aider Tasks</a>
+  </div>
+</div>
+{% include "partials/_django_messages.html" %}
+<!-- Message -->
+<div id="fixed-message">
+  <div class="chip error-message ">
+    Error: Other Aider is assigned to this task!
+  </div>
+</div>
+<div class="container">
+  <h5>Aider Tasks</h5>
+</div>
+{% if not tasks %}
+<div class="row container">
+  <div class="col s12 m12">
+    <h3 class="center-align">You don't have any assigned tasks.</h3>
+  </div>
+</div>
+{% endif %}
+{% for task in tasks %}
+  <div class="row container">
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-content">
+          <p class="task-created">{{ task.date_created|time:"G:i:s" }} - {{ task.date_created|date:"d/m/Y" }} - {{task.user.get_username}}</p>
+          <span class="card-title"><b>{{ task.task_title }}</b></span>
+          <p class="card-category"><i class="material-icons">{{ task.category.icon }}</i><b>{{ task.category }}</b></p>
+        </div>
+        <div class="card-content">
+          <p><b >Description</b></p>
+          <p>{{ task.description }}</p>
+        </div>
+        <div class="card-content card-contact">
+          <div>
+            <p><b>Location</b></p>
+            <p>City/Town: {{ task.user.userprofile.city }}</p>
+            <p>Post Code:  {{ task.user.userprofile.post_code }}</p>
+            <p>Phone Number: {{ task.user.userprofile.phone_number  }}</p>
+          </div>
+          <div>
+            <p><b>Date required</b></p>
+            <p>{{ task.time_required|time:"G:i:s" }} - {{ task.date_required|date:"d/m/Y" }}</p>
+          </div>
+        </div>
+        <div class="card-action card-aider">
+            <a class="add-aider-btn btn-floating halfway-fab waves-effect waves-light pink-btn " data-href="{{ task.get_aider_api_url }}" href="">
+              <i class="material-icons">person_add</i>
+            </a>
+          {% if task.aider %}
+            <p class="pinkish assigned-aider"><b>Assigned Aider - {{ task.aider }}</b></p>
+            <i class="pinkish aider-icon small material-icons">person</i>
+          {% else %}
+            <p class="assigned-aider"><b>No Assigned Aider</b></p>
+            <i class="small aider-icon material-icons">person</i>
+          {% endif %}
+        </div>
+        <div class="card-action">
+          {% if task.message_count == 0 %}
+            <p><b>Messages</b></p>
+            <a class="black-icon" href="{% url 'message' task.id %}#chat-bottom">
+              <i class="small material-icons">message</i>
+            </a>
+          {% else %}
+            <p class="pinkish"><b>Messages</b></p>
+            <a class="pinkish" href="{% url 'message' task.id %}#chat-bottom">
+              <i class="small material-icons">message</i> <b>{{ task.message_count }}</b>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% if is_paginated %}
+  <div class="row container center-align">
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+          <li class="pagination-arrow  waves-effect"><a href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+          <li class="waves-effect"><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+      {% else %}
+          <li class="disabled pagination-arrow"><i class="material-icons">chevron_left</i></a></li>
+      {% endif %}
+      <span class="current">
+        <li class="active"><a href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+      </span>
+      {% if page_obj.has_next %}
+          <li class="waves-effect"><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+          <li class="waves-effect pagination-arrow"><a href="?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+      {% else %}
+          <li class="disabled pagination-arrow"><i class="material-icons">chevron_right</i></a></li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+  $(".add-aider-btn").click(function(e){
+    e.preventDefault();
+    var this_ = $(this)
+    var aiderUrl = this_.attr("data-href")
+    var aiderName = this_.siblings(".assigned-aider");
+    var aiderIcon = this_.siblings(".aider-icon");
+    console.log("*****");
+    console.log(aiderName);
+    console.log("*****");
+    $.ajax({
+      url: aiderUrl,
+      method: "GET",
+      data:{},
+      success: function(data) {
+        jQuery( document ).ready(function( $ ) {
+          if(data.aider != null && data.aider != "aider_assigned"){
+            aiderName[0].innerHTML = `<b>Assigned aider - ${data.aider}</b>`;
+            aiderName[0].classList.add("pinkish");
+            aiderIcon[0].classList.add("pinkish");
+            aiderName[0].classList.remove("slide-in-elliptic-left-fwd");
+            aiderIcon[0].classList.remove("slide-in-elliptic-left-fwd");
+            void aiderName[0].offsetWidth;
+            void aiderIcon[0].offsetWidth;
+            aiderName[0].classList.add("slide-in-elliptic-left-fwd");
+            aiderIcon[0].classList.add("slide-in-elliptic-left-fwd");
+          } else if(data.aider == "aider_assigned") {
+              $("#fixed-message").show().delay(5000).fadeOut();
+          } else {
+            aiderName[0].innerHTML = "<b>No Assigned Aider</b>";
+            aiderName[0].classList.remove("pinkish");
+            aiderIcon[0].classList.remove("pinkish");
+          }
+        });
+      }, error: function(error){
+        console.log(error)
+        console.log("error")
+      }
+    })
+  })
+
+</script>
+
+{% endblock %}

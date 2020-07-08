@@ -33,6 +33,21 @@ class ListMyTaskView(LoginRequiredMixin, ListView):
         return queryset
 
 
+class AiderListMyTaskView(LoginRequiredMixin, ListView):
+    """
+    List all user tasks
+    """
+    template_name = 'task/aider_tasks.html'
+    model = Task
+    paginate_by = 10
+    context_object_name = 'tasks'
+
+    def get_queryset(self):
+        queryset = super(AiderListMyTaskView, self).get_queryset()
+        queryset = queryset.filter(aider=self.request.user).order_by('-date_required')
+        return queryset
+
+
 class CreateTaskView(LoginRequiredMixin ,CreateView):
     """
     Create a task class view
