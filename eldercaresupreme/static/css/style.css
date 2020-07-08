@@ -665,7 +665,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 @media only screen and (max-width: 520px) {
-  .login-btn-wrapper div:first-child {
+  .login-btn-wrapper {
     display: flex;
     flex-direction: column;
   }
