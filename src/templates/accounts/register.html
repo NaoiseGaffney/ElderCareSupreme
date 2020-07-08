@@ -7,11 +7,12 @@
 {% block content %}
 {% include "partials/_django_messages.html" %}
 <div class="row container">
+  <h5>Register Page</h5>
   <form method="post">
     {% csrf_token %}
     <div class="row">
       {% for field in form %}
-      
+
       {% if 'Username' in field.label %}
       <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter your username using 150
           characters or less. Letters, digits and @/./+/-/_
@@ -20,33 +21,37 @@
       {% endif %}
 
       {% if 'First' in field.label %}
-      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter your first name only.</span></div>
+      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter your first name only.</span>
+      </div>
       {{ field }}
       {% endif %}
 
       {% if 'Email' in field.label %}
-      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter your e-mail address, for example 'name@domain.com'.</span></div>
+      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter your e-mail address, for example
+          'name@domain.com'.</span></div>
       {{ field }}
       {% endif %}
-      
+
       {% if field.label == 'Password' %}
-      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter a password longer than 8 characters, using a mixture of numbers and letters, and ideally one or more special characters.</span></div>
+      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Please enter a password longer than 8
+          characters, using a mixture of numbers and letters, and ideally one or more special characters.</span></div>
       {{ field }}
       {% endif %}
 
       {% if 'Password confirmation' in field.label %}
-      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Password confirmation: Please enter the same password as again for verification.</span></div>
+      <div class="tooltip">{{ field.label_tag }}<span class="tooltiptext">Password confirmation: Please enter the same
+          password as again for verification.</span></div>
       {{ field }}
       {% endif %}
       {% endfor %}
-      
+
     </div>
     <div class="row">
       <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="REGISTER"
         value="REGISTER">Register<i class="material-icons right">send</i>
       </button>
     </div>
-    
+
   </form>
 </div>
 {% endblock %}

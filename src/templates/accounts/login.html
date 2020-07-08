@@ -7,7 +7,9 @@
 
 <!-- Message -->
 {% include 'partials/_messages.html' %}
-<form action="{% url 'login' %}" method="POST" class="container">
+<div class="container">
+<h5>Login Page</h5>
+<form action="{% url 'login' %}" method="POST">
   {% csrf_token %}
   <div class="row">
     <div class="input-field">
@@ -21,7 +23,7 @@
       <input type="password" id="password" name="password" required>
     </div>
   </div>
-  <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="SIGN IN" value="SIGN IN">Submit
+  <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="SIGN IN" value="SIGN IN">Login
     <i class="material-icons right">send</i>
   </button>
    <a class="btn waves-effect waves-light pink lighten-2 modal-trigger" href="{%url 'password_reset'%}">Forgot password?<i class="material-icons right">contact_support</i></a>
@@ -55,4 +57,5 @@
     </div>
   </aside>
 </form>
+</div>
 {% endblock %}
