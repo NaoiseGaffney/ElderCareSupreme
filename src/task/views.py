@@ -38,6 +38,7 @@ class CreateTaskView(LoginRequiredMixin ,CreateView):
     form_class = TaskForm
     success_url = 'task_list'
 
+
     def form_valid(self, form):
         instance = form.save(commit=False)
         instance.user = self.request.user

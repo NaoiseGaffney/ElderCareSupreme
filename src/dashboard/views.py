@@ -22,6 +22,7 @@ class DashboardView(LoginRequiredMixin, View):
         }
         return render(request, self.template_name, context)
 
+
 class UserProfileUpdate(LoginRequiredMixin, UpdateView):
     """
     Update View for user profile
@@ -63,3 +64,8 @@ class UserProfileUpdate(LoginRequiredMixin, UpdateView):
         messages.success(self.request, 
                              f'Your profile was updated!')
         return redirect(self.get_success_url())
+    
+    def form_invalid(self, form):
+        message = messages.error(self.request, 
+                             f'Fill in all field. Please make sure that your phone number is valid!')
+        return self.render_to_response(self.get_context_data(request=self.request, form=form))
