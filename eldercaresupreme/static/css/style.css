@@ -71,7 +71,7 @@ h5+p {
   padding-left: 0;
 }
 
-.breadcrumb-wrapper > .col.s12 {
+.breadcrumb-wrapper>.col.s12 {
   padding-left: 0;
 }
 
@@ -222,7 +222,7 @@ h5+p {
 
 .is_done_grey {
   background-color: #cecece;
-} 
+}
 
 .done-btn {
   margin-right: 140px;
@@ -344,12 +344,12 @@ label.active {
   width: 30px;
 }
 
-.pagination-arrow > a {
+.pagination-arrow>a {
   position: relative;
   top: 4px;
 }
 
-.pagination-arrow > i {
+.pagination-arrow>i {
   position: relative;
   top: 0;
 }
@@ -378,8 +378,8 @@ label.active {
 }
 
 .heartbeat {
-	-webkit-animation: heartbeat 2s ease-in-out infinite both;
-	        animation: heartbeat 2s ease-in-out infinite both;
+  -webkit-animation: heartbeat 2s ease-in-out infinite both;
+  animation: heartbeat 2s ease-in-out infinite both;
 }
 
 /* ----------------------------------------------
@@ -394,72 +394,81 @@ label.active {
  * animation heartbeat
  * ----------------------------------------
  */
- @-webkit-keyframes heartbeat {
+@-webkit-keyframes heartbeat {
   from {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   10% {
     -webkit-transform: scale(0.91);
-            transform: scale(0.91);
+    transform: scale(0.91);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   17% {
     -webkit-transform: scale(0.98);
-            transform: scale(0.98);
+    transform: scale(0.98);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   33% {
     -webkit-transform: scale(0.87);
-            transform: scale(0.87);
+    transform: scale(0.87);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   45% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
+
 @keyframes heartbeat {
   from {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   10% {
     -webkit-transform: scale(0.91);
-            transform: scale(0.91);
+    transform: scale(0.91);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   17% {
     -webkit-transform: scale(0.98);
-            transform: scale(0.98);
+    transform: scale(0.98);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   33% {
     -webkit-transform: scale(0.87);
-            transform: scale(0.87);
+    transform: scale(0.87);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   45% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 
@@ -623,6 +632,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
   background-color: purple;
 }
 
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #f06292;
+  will-change: left, right;
+}
+
 @media only screen and (max-width: 800px) {
   .intro-text {
     font-size: 1.2rem;
@@ -634,7 +651,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
     font-size: 2rem;
     padding: 0 10px;
   }
-  #index h3 > span {
+
+  #index h3>span {
     white-space: nowrap;
   }
 }
@@ -660,6 +678,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     font-size: 0.9rem;
     font-weight: 600;
   }
+
   #index h3 {
     font-size: 1.8rem;
   }
