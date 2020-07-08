@@ -2,7 +2,7 @@
     {% for field in form %}
         {% for error in field.errors %}
           <div class="container center-align">
-            <div id="message" class="chip error-message ">
+            <div class="message chip error-message ">
               {{ error|escape }}
               <i class="close material-icons">close</i>
             </div>

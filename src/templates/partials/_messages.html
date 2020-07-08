@@ -1,7 +1,7 @@
 {% if messages %}
     {% for message in messages %}
     <div class="container center-align">
-      <div id="message" class="chip
+      <div class="message chip
         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
           error-message 
         {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}

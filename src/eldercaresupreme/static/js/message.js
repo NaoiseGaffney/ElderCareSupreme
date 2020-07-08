@@ -1,4 +1,4 @@
 // Message pop window timeout
 setTimeout(function() {
-  $('#message').fadeOut('slow');
+  var messages = $(".message").fadeOut();;
 }, 4000);
