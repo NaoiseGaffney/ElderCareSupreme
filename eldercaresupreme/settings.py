@@ -161,13 +161,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-SENDGRID_API_KEY = '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' # change key and use envvar in production
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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' # change key and useenv var in production
-EMAIL_PORT = 465
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.getenv('email-user')
+EMAIL_HOST_PASSWORD = os.getenv('email-password')
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'admin@ElderCareSupreme.org' # 
+DEFAULT_FROM_EMAIL = os.getenv('email-sender') 
 
 
 # Activate Django-Heroku.
