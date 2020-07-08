@@ -137,6 +137,15 @@ h5+p {
   margin-right: 30px;
 }
 
+.chat-footer {
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.chat-footer p {
+  white-space: nowrap;
+}
+
 .chat-user span {
   margin-left: 5px;
 }
