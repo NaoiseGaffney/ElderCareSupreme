@@ -7,7 +7,7 @@ Team Heart Warmers – We warm the hearts of the Elderly we help with our Elder 
 
 [Elder Care Supreme](https://elder-care-supreme.herokuapp.com/)
 
-[Elder Care Supreme Logo (index.html)](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/production/eldercaresupreme/static/images/ElderCareSupremeLogo.png)
+![Elder Care Supreme Logo (index.html)](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/production/eldercaresupreme/static/images/ElderCareSupremeLogo.png)
 
 A responsive and interactive website that provides a service to the elderly, and linking the elderly to aiders that have the opportunity to help with their daily tasks.
 
@@ -95,7 +95,7 @@ The IA and UX Design guide the user throughout the whole Elder Care Service expe
 We all went outside of our comfort zone on this Hackathon, going above-and-beyond in terms of paradigms, frameworks, deployment, and working as a global virtual team.
 
 #### Awesomeness
-![Awesomeness right there!](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 04.01.29.png)
+[Awesomeness right there](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 04.01.29.png)
 
 
 Elder Care Supreme allows the elderly and aiders to connect, communicate, and collaborate on elderly daily tasks.
