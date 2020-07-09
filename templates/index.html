@@ -14,11 +14,15 @@
     <img id="heart" src="/static/images/PinkHeartNoBackground.png" class="heart-img" alt="heart">
   </div>
   <div class="intro-text center-align">
-    <p data-aos="fade-up" data-aos-duration="1400" data-aos-anchor-placement="center-bottom">Elder Care Supreme is a service for the elderly requiring help</p>
-    <p data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">with daily chores, aided by volunteers who have the ability to</p> 
-    <p data-aos="fade-up" data-aos-duration="2600" data-aos-anchor-placement="center-bottom">provide the necessary professional services.</p> 
+    <p data-aos="fade-up" data-aos-duration="1400" data-aos-anchor-placement="center-bottom">Elder Care Supreme is a
+      service for the elderly requiring help</p>
+    <p data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">with daily chores, aided by
+      volunteers who have the ability to</p>
+    <p data-aos="fade-up" data-aos-duration="2600" data-aos-anchor-placement="center-bottom">provide the necessary
+      professional services.</p>
   </div>
-  <a id="index-help" data-aos="fade-up" data-aos-duration="2800" data-aos-anchor-placement="center-bottom" class="btn waves-effect waves-light pink lighten-2 modal-trigger" href="#help">Help<i
+  <a id="index-help" data-aos="fade-up" data-aos-duration="2800" data-aos-anchor-placement="center-bottom"
+    class="btn waves-effect waves-light pink lighten-2 modal-trigger" href="#help">Help<i
       class="material-icons right">contact_support</i></a>
 </section>
 <aside>
@@ -27,22 +31,27 @@
       <div class="modal-content">
         <h4>Instructions</h4>
         <p>The Elder Care Supreme application enables you to ask for help with your daily chores.</p><br>
-        <p>To access your dashboard, to add and select the daily tasks you want help with, please login on this page
+        <p>To access your dashboard, to add and select the daily tasks you want help with, please login on the Login
+          page (button at the top-right corner)
           using your 'Username' and 'Password' that you created when you registered your account.</p><br>
         <p>If you do not have an account, please register clicking on the 'Register' button on the top right of this
-          page. When you register, please provide the following details:
+          page. Whenever you are unsure of how to fill out a field, please hover (mouse over) over the label for
+          instructions. When you register, please provide the following details::
         <ul class="modal-list">
           <li>Your 'Username', whatever you wish to call yourself.</li>
           <li>Your 'First name', so we can address you properly when helping you with your daily tasks.</li>
-          <li>Your 'E-mail' address, to communicate with you, and also used for password reset in case you have
-            forgotten your password.</li>
-          <li>Your 'Password', used togther wiht your 'Username' to access your dashboard of daily tasks.</li>
+          <li>Your 'E-mail' address, to communicate with you, and also used for password reset in case you forget your
+            password.</li>
+          <li>Your 'Password', used togther with your 'Username' to access your dashboard of daily tasks.</li>
           <li>Please confirm your password by entering it again in 'Password confirmation'.</li>
           <li>When you are ready, click on the 'Register' button to login with your 'Username' and 'Password'.</li>
         </ul>
         </p><br>
-        <p>Your dashboard contains a selection of common daily tasks that you may want help with. You can add your own
-          tasks too. Select the task you need help with, fill out the details and...</p><br>
+        <p>Your dashboard contains links to your tasks, adding new tasks, updating your profile, and logging out. Add a
+          task you need help with, provide a title, select a category, provide a description, chose a date and
+          optionally a time.
+          the task you need help with, fill out the details and add a message to the kind person
+          that's going to help you with your chores.</p><br>
         <p>When you are done, you may 'Logout' from this application.</p>
       </div>
       <div class="modal-footer">
@@ -56,9 +65,9 @@
 
 {% block js %}
 <script>
-  setTimeout(function() {
+  setTimeout(function () {
     var heart = $("#heart");
-    heart.addClass("heartbeat") 
+    heart.addClass("heartbeat")
   }, 2700);
   AOS.init();
 </script>
