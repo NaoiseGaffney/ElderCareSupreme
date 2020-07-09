@@ -95,7 +95,7 @@ The IA and UX Design guide the user throughout the whole Elder Care Service expe
 We all went outside of our comfort zone on this Hackathon, going above-and-beyond in terms of paradigms, frameworks, deployment, and working as a global virtual team.
 
 #### Awesomeness
-![Awesomeness right there!](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 04.01.29.png)
+[Awesomeness right there](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 04.01.29.png)
 
 
 Elder Care Supreme allows the elderly and aiders to connect, communicate, and collaborate on elderly daily tasks.
@@ -203,8 +203,8 @@ Automated testing is performed using:
 
 * [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
 * [Selenium IDE Automated Test File](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/production/src/Elder%20Care%20Supreme.side)
-* [Video Walkthrough of General Test Case 1]()
-* [Video Walkthrough of General Test Case 2]()
+* [Video Walkthrough of General Test Case 1](https://drive.google.com/file/d/1p8fk2OcfAcPFt9fUPu5cYsf559V0sLcu/view)
+* [Video Walkthrough of General Test Case 2](https://drive.google.com/file/d/11yKoTC2dRqYynO6y9KzE8wJs4f1uIuFw/view)
 
 ### Testing Notes
 All devices and formats are tested in both portrait and landscape mode. The website is responsive and supports all tested browsers.
@@ -219,9 +219,7 @@ A couple of things to note:
 #### HTML
 [HTML Validation](https://validator.w3.org/nu/)
 
-![HTML Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/HTML%20Validation.png)
-
-[HTML Validation Link for the website](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnaoisegaffney.github.io%2FCitiesInCountries%2F)
+[HTML Validation Link for the website](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Felder-care-supreme.herokuapp.com%2F)
 
 #### CSS
 [CSS Validation](https://jigsaw.w3.org/css-validator/#validate_by_input)
