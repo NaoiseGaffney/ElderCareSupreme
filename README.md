@@ -1,205 +1,289 @@
+# Elder Care Supreme (Code Institute Hackathon July 2020)
+"Elder Care Supreme allows the elderly and aiders to connect, communicate, and collaborate on elderly daily tasks." - Team Hackathon Heart Warmers
+
+The elderly lady / gentleman (Elder), supported by a helping hand (Care), providing diamond standard services (Supreme).
+
+Team Heart Warmers – We warm the hearts of the Elderly we help with our Elder Care Supreme application that enables the elderly to ask for help with their daily tasks.
+
+[Elder Care Supreme](https://elder-care-supreme.herokuapp.com/)
+
+![Elder Care Supreme Logo (index.html)](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/production/eldercaresupreme/static/images/ElderCareSupremeLogo.png)
+
+A responsive and interactive website that provides a service to the elderly, and linking the elderly to aiders that have the opportunity to help with their daily tasks.
+
+## Our Hackathon Challenge
+Thriving in the New Normal - Connecting Together: Many older and vulnerable people are still cocooning or carefully and actively socially distancing in order to stay safe. While we may still need to remain physically distanced from others, the opportunities for connection are greater than ever before. Can you deliver or promote a simple solution that could help older and vulnerable people to stay connected to each other, the people they love and the world around them?
+
+## Business
+### External Users' Goals
+Elder Care Supreme is a service for the elderly requiring help with daily chores, aided by volunteers who have the ability to provide the necessary professional services.
+
+### Site Owner's Goals
+To create an online resource for users who are self-isolating due to Covid-19, those who need care and people who can give care. The web application will allow someone to ask for assistance for tasks that they are unable to complete themselves. For example, shopping, fetching prescriptions, walking pets etc.
+
+The ability for volunteers to be able to offer their time and provide assistance in completing tasks for those requesting assistance.
+
+The site has potential to become more informative and interactive. It currently serves as a proof-of-concept of providing aide to the elderly based on tasks, categories, and geography.
+
+It serves as a strong prototype for an application serving the needs of the elderly, and as an example of going above-and-beyond by the team using and improving upon the knowldege and skills the team has gained by attending the Full Stack Development course by the Code Institute.
+
+This Hackathon is a continuous learning experience for the team:
+
+* Working in sprints, collaborating and communicating using Trello, Slack, and Zoom.
+* Working with new paradigms (Python OOP and new Django extensions), new frameworks (Materialize 1.0.0), and new databases (PostgreSQL).
+* Continuous knowledge and skill sharing through Slack Video Seesions and Zoom Team Calls.
+
+### Features
+Current features:
+
+* Register as a new user, and create a profile as either an elderly person or an aider.
+* Login and logout, with password reset via e-mail.
+* Create, Read, Update, and Delete daily tasks as both an elderly person and as an aider.
+* Aider can search for elderly tasks to perform, view these tasks, add / view / update / and delete own tasks for help from other aiders.
+* Both the elderly and aiders can communicate via task chat to better plan the execution of the daily task(s).
+* [Admin Page](https://elder-care-supreme.herokuapp.com/admin/login/?next=/admin/) to work with "Group and User Authentication and Authorisation", "User Profiles", "Task Messages" between the elderly and aiders, and "Task Categories" and "Tasks".
+* Footer Modal presenting the Hackathon Heart Warmers team and members, as well as providing a description of the logo, and a link to the GitHub repository.
+
+Future improvements:
+
+* Add location map markers and enable task selction by more precise areas.
+* Provide a summary of tasks requiring help, and a list of aiders willing to help.
+* View full profiles of both the elderlt and the aiders.
+* Online chat forum for all to partake in, to share experiences.
+* Adding a payment and money-transfer service so that aiders can go shopping and know they're covered for their expenses.
+* Communicate with the Hackathon Heart Warmers to add features and functions to Elder Care Supreme.
+
+## Processes
+### UX
+
+Elder Care Supreme is a responsive and easy-to-use service with a natural flow and easy-to-use by primarily the elderly, though also by the aiders.
+
+There are two main actors/roles that use the services provided by the website: an elderly person and an aider.
+
+* Elderly and Aider - UC 1 - Register, Login, and Logout: As a user, to access Elder Care Supreme, I need to register to login, and login to access my dashboard.
+	* Access Landing Page --> click on Register on the navigation bar --> Register Page: enter my details (username, first name, email, password, and password confirmation) --> User Profile: enter additional details to link to aiders in the vicinity of my location (city, post code / Eircode, "is aider", phone number) --> Logout.
+* Elderly and Aider - UC 2 - CRUD a task: As a user I want to add a task, view it, update it, and delete it, to allow for an aider to help me with my tasks, add additional details to help the aider, and delete it when it's done.
+	* Access Landing Page --> click on Login on the navigation bar --> Login Page: provide username and password, click on the Login buton --> Dashboard: click on Add Task --> Add Task Page: fill in the form (title, select category, provide a detailed description, select a date, and optionally a time), click on the Submit button --> My Tasks Page: I can click on messages to send a message to the aider that selects my task, or edit task (pencil), or select done (tick), or delete when the task is done and I no longer need it (trash can / rubbish bin).
+		* Messages --> Messages Page: click on the message field, type a message and click on the Send button. When done, click on the Dashboard button on the navigation bar, or use the breadcrumbs.
+		* Edit Task -->  Update Task Page: the form is pre-populated with the previous information, and is easily updated by clicking on a form field and entering new or additional text. Click on the Submit button --> Delete Task Page: confirmation of removal, click on the Go Back To Task List button.
+		* Done: click on the Done button, and it changes status/colour.
+		* Delete Task: once the task is done and no longer needed, it can be deleted by clickiing on the Delete button (trash-can / rubbish bin).
+* Elderly and Aider - UC 3 - View My Tasks: as a user I want to view the tasks I've created o see who is aiding, or to read my task messages.
+	* Access Landing Page --> click on Login on the navigation bar --> Login Page: provide username and password, click on the Login buton --> Dashboard: click on My Tasks --> My Tasks Page: I can add another task, view my list of tasks and perform similar functions as in UC 2.
+* Aider - UC 4 - Task Search and Aider Tasks: As an aider I want to search for tasks that I can do for an elderly person, and view these searched & selected tasks in my Aider Tasks.
+	* Access Landing Page --> click on Login on the navigation bar --> Login Page: provide username and password, click on the Login buton --> Dashboard:
+		* Task Search: enter city or post codes in the search field and click on the Search button, or simply select the tasks you can do in the card list --> Select a task by clikcing on the +person button on the lower left of a card, and the status on the card changes from "No Assigned Aider" to "Assigned aider - <username of aider>".
+		* Aider Tasks: view your list of tasks for the elderly, and either message an elderly or print the card to perform the task.
+* Admin - UC 5 - Administration: as an administrator I want to CRUD "Group and User Authentication and Authorisation", "User Profiles", "Task Messages" between the elderly and aiders, and "Task Categories" and "Tasks" to maintain the Elder Care Supreme service.
+
+## Solution
+
+#### Adherence to Theme
+"Elder Care Supreme allows the elderly and aiders to connect, communicate, and collaborate on elderly daily tasks." - Team Hackathon Heart Warmers
+
+The elderly lady / gentleman (Elder), supported by a helping hand (Care), providing diamond standard services (Supreme).
+
+#### Team Collaboration
+Extensive use of Zoom calls for Hackathon Virtual Standup meetings with agenda, notes, and video recordings stored on Trello and shared on Slack.
+
+[Kanban Board](https://trello.com/b/cQ9G18LO/agile-sprint-board)
+
+#### Usability and Practicability
+The IA and UX Design guide the user throughout the whole Elder Care Service experience, and the colour scheme as well as the styling using Materialize CSS 1.0.0 is most apt for the elderly and those having one form or another of colour blindness.
+
+#### Effective Use of Course Knowledge
+We all went outside of our comfort zone on this Hackathon, going above-and-beyond in terms of paradigms, frameworks, deployment, and working as a global virtual team.
+
+#### Awesomeness
+![Awesomeness right there!](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 04.01.29.png)
 
 
-# ELDER CARE SUPREME #
+Elder Care Supreme allows the elderly and aiders to connect, communicate, and collaborate on elderly daily tasks.
 
-Advanced Team A
- 
-Code Institute - 
-Hackerthon July 2020
+**Information Architecture:** Elder Care Supreme uses a Sequential Information Architecture to guide the elderly (who may not have the knowledge, nor skills, nor confidence to appreciate the complexity of technology) through the features they need to perform their tasks in an easy manner.
 
-
-**<u>About</u>** 
-
-This web application is has been created by a team of coders working remotely to produce a quality online resource. The project will be submitted to a panel of expert to be judged as part of an online competition which is run regularly by the Institute. The idea is to give current and past students the valuable experience of working as a team.
-
-**<u>Concept</u>** 
-
-To create an online resource for users who are self-isolating due to Covid-19, those who need care and people who can give care. The web application will allow someone to ask for assistance for tasks that they are unable to complete themselves. For example, Shopping, Fetching Prescriptions, Walking pets etc.
-
-The ability for volunteers to be able to offer their time and provide assistance in completing tasks for those requesting assistance. 
-
-**<u>Coding Process</u>** 
-
-We had an initial zoom meeting to introduce ourselves and decide on the concept for the project. After a short discussion, we split the team into Front-End, rear-end developers based on experience and individual preference.
-
-We started a Trello board to contain a breakdown of the tasks required to build the website. This would also include being able to allocate tasks to team members to avoid work duplication. 
-
-We decided to use GiHub as a store, working locally by creating branches from the master whilst working on the code and then pushing back to the master branch when completed. 
-
-During the project we have had a morning and evening zoom meeting to keep in touch, discussing any issues and allocating work to team members.  
-
-
-**<u>UI/UX</u>**
-
-The site design has completed with all types of user in mind, keeping the graphics and text clean and tidy. Easy to read and follow the paths through the application. 
-
-**<u>Design Decisions</u>**
-
-Design Decision - CSS:
-
-Materialize 1.0.0 to create a simple and easy-to-read website for the elderly.
-
-Design Decision - Colour Scheme:
+**UX Design and Design Decisions:** the colour scheme is soft and generally avoids the colours blue and green which is well suited for the elderly.
 
 The colour scheme must provide a strong enough contrast to make the website easy to read. It needs “air” to make all elements visibly stand out, and it needs to use colours suitable for the elderly.
 
 White background (bright and easy to read for an Elder as opposed to a dark background), possibly off-white or beige (softer, less harsh on the eyes).
 
-Blue is a common colour for care sites, however, blue is not an ideal colour for the elderly. Nor is green. A soft purple contrasts with the white/beige background and complements the accent colour of pink.
+Blue is a common colour for care sites, however, blue is not an ideal colour for the elderly. Nor is green. A soft pink contrasts with the white/beige background and complements the accent colour of purple.
+
+Text colour is black and in some cases white when the buttons are purple or pink. Accent colour needs to stand out, a strong contrast to both the background and primary colour.
+
+* Text Colour: #000000 Black or #ffffff White.
+* Primary Colour: #f06292 Pink Lighten-2
+* Secondary / Accent Colour: #800080 Purple
+* Background Colour: #FBF8EF Eggshell White
+ 
+These colours work well for people with colour blindness, good contrasts while maintaining colour scheme integrity (Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly, Achromatomaly). We've tested Elder Care Supreme with Sim Daltonism to ensure we always have good contrast and visibility regardless of colour blindness condition. In addition we've opted for a clear font, Raleway, and large font-sizes on all devices to ensure readability for our users.
+
+We have chosen Materialize CSS 1.0.0 as our front-end framework as the iconography, features, and availble colour schemes provide clear, contrasting, and visible features suitable to the elderly and people with some form of colour blindness.
+
+### Code
+
+[GitHub Repository](https://github.com/NaoiseGaffney/ElderCareSupreme/)
+
+## Technology
+
+A list of the languages, frameworks, libraries, and other tools used for this project.
+
+### Code:
+* [HTML 5.2. - W3C Recommendation, 14 December 2017](https://www.w3.org/TR/html52/)
+	* The project uses HTML 5 to create the content.
+* [CSS 3 CSS - Snapshot 2018 W3C Working Group Note, 22 January 2019](https://www.w3.org/TR/css-2018/)
+	* The project uses CSS 3 to style the content and provide the layout.
+* [Materialize CSS 1.0.0](https://materializecss.com/)
+	* The front-end framework is Materialize CSS 1.0.0.
+* [ECMAScript&reg; 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
+	* The project uses JavaScript, based on the ECMAScript language specification and implemented by numerous browser vendors. As a general rule, I read the implementation of this at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+* [Python 3.8.2](https://www.python.org/)
+	* All back-end heavy lifting is done through Python, the Django Web Framework and assocaited extensions, as well as PostgreSQL.
+* [Django Web Framework](https://www.djangoproject.com/)
+	* All back-end heavy lifting is done through Python, the Django Web Framework and assocaited extensions, as well as PostgreSQL.
+* [PostgreSQL](https://www.postgresql.org/)
+	* All back-end heavy lifting is done through Python, the Django Web Framework and associated extensions, as well as PostgreSQL.
+
+### Development and Staging Platforms and Environments
+* [GitHub / GitPod /Git / GitHub Pages](https://github.com/)
+	* The project uses GitHub:
+		* Git to add, commit, and push the project files to GitHub.
+* [Code Institute GitPod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+	* Using the GitPod Full Template from the Code Institute for our project.
+* [DropBox](https://www.dropbox.com/)
+	* Using DropBox as a staging area for Visual Studio Code, and synching this with GitHub.
+* [Visual Studio Code](https://code.visualstudio.com/)
+	* Code writing and staging. Use Visual Studio Code for all team development.
+* [LiveServer for Visual Code Studio](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+	* This is the local Web Server used for development and testing, running as an add-on to Visual Studio Code.
+* [Heroku](https://www.heroku.com/)
+	* Cloud Application Platform and is where Elder Care Supreme is hosted.
+* [Zoom](https://zoom.us/)
+	* All Hackathon Virtual Standup Calls, all recorded, stored on DropBox, shared notes/agenda/recording on Slack and Trello.
+* [Trello](https://trello.com/)
+	* Our Kanban Board is on Trello, and we move our cards along as we finish each stage.
+* [Slack](https://slack.com/)
+	* For all ad-hoc communication and collaboration.
+
+### Documentation Tools
+* [MacDown](https://macdown.uranusjr.com/)
+	* Using this application to write this documentation in MarkDown.
+* [Microsoft Office 365 - PowerPoint](https://office.live.com/start/powerpoint.aspx)
+	* Using this application to create website diagrams, logos, and presentations.
+
+### Acknowledgements and Attributions of Used Features and Functions
+* [Google Fonts: Raleway](https://fonts.googleapis.com/css?family=Raleway%7C&display=swap)
+	* Using this font in different sizes for all text.
+* [FontAwesome CDN](https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css)
+	* Using FontAwesome font icons to add visual elements to key website features, making the website memorable and easier to navigate.
+* [Material Design](https://material.io/)
+	* Using icons throughout the website as they suit Materialize CSS 1.0.0 and the UX Design pricniples of this service.
 
-Text colour is black and in some cases white when the buttons are purple or pink.
-Accent colour needs to stand out, a strong contrast to both the background and primary colour. Pink is a strong and visible colour, perhaps in a softer and lighter shade.
+### General Knowledge and Hours of Reading
+* Team Collaboration and Knowledge Sharing is the cornerstone of our success as a team. We shared knowledge and skills, based on previous experiences and through the Code Institute course, as well as what we learned by going above-and-beyond on this Hackathon project.
+* A special mention must go to Toby, our resident Python
 
-Text Colour 1: #000000 Black
-Text Colour 2: #FFFFFF White
-Primary Colour: #B288C0 Blue Violet
-Background Colour: #F4ECD6 Eggshell
-Accent Colour: #FFADAD Light Pink
+### Elixir of Life
+* [Strong Black French Press Coffee](https://www.youtube.com/watch?v=st571DYYTR8)
+	* Keeps me alert and on-schedule; keeps me going through the night. This is the secret source of my programming-powers. :-)
 
-These colours work well for people with colour blindness, good contrasts while maintaining colour scheme integrity (Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly, Achromatomaly).
+## Testing
 
-**<u>User Stories:</u>**
+### Manual Testing Technology - Unit, Integration, and System Testing
+The following combination of software and hardware is used for all manual tests:
 
-Landing Page: 
+* Chrome on MacOSX (MacBook Pro) for both laptop/large display and mobile devices (inspect --> responsive).
+* Firefox Developer Edition on MacOSX (MacBook Pro) for both laptop/large displays and mobile devices (Web Developer Tools --> Responsive Design Mode).
+* Safari on MacOSX (MacBook Pro) for laptop/large display testing.
+* Physical devices: Samsung Galaxy Note 10+ 5G with Chrome, Samsung Browser and Firefox. Apple iPhone 8 with Chrome and Safari.
 
-As a visitor, I would like to be able to login or register for an account.
+### Automated Testing Technology - Acceptance (System) Testing
+Automated testing is performed using:
 
-Login Page:
+* [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
+* [Selenium IDE Automated Test File](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/production/src/Elder%20Care%20Supreme.side)
+* [Video Walkthrough of General Test Case 1]()
+* [Video Walkthrough of General Test Case 2]()
 
-As a user, I would like to be able to login to the site using my credentials.
+### Testing Notes
+All devices and formats are tested in both portrait and landscape mode. The website is responsive and supports all tested browsers.
 
-Dashboard:
+A couple of things to note:
 
-As a user, I would like to make a selection from Adding a new task, Selecting an existing task, and updating my profile details.
+* We discovered that running complete (end-to-end) continuous website walkthrouhgs aided in identifying functional and styling issues, as well as ensuring conformity to our design standards.
+* We have discovered ways in which to easily add custom CSS to Materialize CSS 1.0.0 using the Chrome Inspector features.
+* Using the Django Materialize extension causes styling and conformity issues, as it uses the earlier version of Materialize CSS 0.100.2 and not Materialize CSS 1.0.0. We've found ways in which to deal with this and consistently style with Mateialize CSS 1.0.0.
 
-Search for a task:
+### HTML, CSS, and JS Validation
+#### HTML
+[HTML Validation](https://validator.w3.org/nu/)
 
-As a user, I would like to be able to search for a task by city name or post code.
+![HTML Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/HTML%20Validation.png)
 
-Add task:
+[HTML Validation Link for the website](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnaoisegaffney.github.io%2FCitiesInCountries%2F)
 
-As a user, I would like to be able to add a new task.
+#### CSS
+[CSS Validation](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-Update Profile:
+[CSS Validation Link for the website](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Felder-care-supreme.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-As a user, I would like to be able to update the details in my profile.
+One error beyond our control as it relates to the Materialize CSS 1.0.0 CDN. Otherwise the website has warnings, which are not considered critical. We could donwload and install Materialize CSS 1.0.0, edit the highlighted error, and use that instead of the CDN.
 
+## Deployment
 
-**<u>Testing</u>**
+![Deployment, CD, Roles and Responsibilities](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Elder Care Supreme CD and Platform.png)
 
-Testing has been completed by humans using as many different devices and screen sizes as possible. Also, testing has been completed remotely at several locations using a mixture of 4g and 3g to check on response and download times.
+### Initial Environment Setup
 
-**<u>General Website Functionality Tests:</u>**
+* git clone https://github.com/NaoiseGaffney/ElderCareSupreme.git
+* git branch <yourbranchname>
+* git config --global user.mail "<youremailaddress>"
+* git config --global user.name "<yourGitHubname>"
+* git add .
+* git commit -m "Sensible and descriptive message"
+* git push --set-upstream origin <yourbranchname>
+* Login pop-up: login (first time only)
 
-Landing Page: 
+### Pushing Code
 
-All the buttons have been checked for functionality. All are working as planned.
+* git add .
+* git commit -m "Sensible and descriptive message"
+* git push
+* git checkout master
+* git merge <yourbranchname>
+* git push
+* git checkout production
+* git merge master
+* git push
 
-Login Page:
+### Configuring and Running `manage.py`
 
-The form has been tested line by line for validation and functionality. Working as planned.
-The buttons on the page have also been tested and the links are all working correctly.
+#### Initial Model Creations when Using SQLite3 (moved to PostgreSQL in production)
 
-Dashboard:
+* src/python manage.py makemigrations
+* src/python manage.py migrate
+* src/python manage.py createsuperuser
 
-All of the buttons have been tested and are working as desired.
+#### Running `manage.py`
 
-Search for a task:
+* src/python manage.py runserver
 
-The form has been tested and is working correctly. If no tasks are available in the area selected then the correct message is displayed. Otherwise, the available tasks are displayed as planned.
+For this project we use Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) updates to GitHub.
 
-Select task:
+A simplified view of the Continuous Delivery: VS Code on own <branch>, tested by individual `python manage.py runserver`, pushed to GitHub --> merged with <master>, pushed to GitHub, tested by peer --> merged with <production>, pushed to GitHub --> automatically deployed to Heroku Staging in Pipeline, tested in staging --> manually promoted to production on Heroku with final testing.
 
-The functionality of this page has been tested and is working correctly
+![Heroku Staging Deployment triggered by GitHub production branch update](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 03.45.51.png)
 
-My tasks:
+![Heroku Production Promotion - manual](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 03.46.50.png)
 
-The buttons and functionality of this page have been confirmed to be working correctly.
+![Heroku Production Deployment](https://github.com/NaoiseGaffney/ElderCareSupreme/blob/GaffBranch/eldercaresupreme/static/images/Screenshot 2020-07-09 03.46.57.png)
 
-Add task: 
+## Credits
+Team Hackathon Heart Warmers!
+Miklos!
+Code Institute!
 
-The form has been tested and is working as desired.
-
-Update Profile:
-
-The form has been tested and works as planned. 
-
-**<u>Technology Used</u>**
-
-* Python
-* Django
-* Django REST Framwork
-* Javascript
-* HTML
-* CSS
-* Materialize
-* Heroku
-* Visual Studio Code
-* GitHub
-* GitPod
-* Zoom
-* Visual Studio Code
-
-
-
-**<u>Deployment</u>**
-
-How to run app on local machine
-Clone application repository to you local directory.
-
-You will need to install python if you don't have it. All python version 3 should work. You can download the newest version from here
-
-Once you installed python, you will need to create virtual environment. You can learn more about it from here. 
-terminal run python -m venv venv-eldercaresupreme - now you virtual env should be created. But you need to activate it. If you are working on VS Code, press Ctrl + Shift + P and start typing Python: select interpreter. After first few letters it should come up. - once you picked that option you should see a list of Python version and you virtual environment should be there. 
-
-If you can't see it there. You will have to open folder where you created your virtual env and find activate.bat inside Scripts folder. Then you need to copy the absolute path to this file inside your terminal if you are working on windows. 
-
-For Mac/Linux you need to add source at the beginning - then open new terminal. Above or before the line (depends which terminal you are using) you should see inside the brackets (venv-eldercaresupreme)
-now you need to install all packages from requirements file.
-
- To do it type in terminal pip install -r requirements.txt
-Almost there :). Now to run application
- you need to navigate inside the terminal to src folder. If you are in the main repository folder run cd src.
-If you are inside the src folder run python manage.py runserver. 
-
-After this command server should lunch and when you type localhost inside your browser you should see that app is running as well you should see inside the terminal that server lunched and it should show you the address to the app and you can Ctrl + click to open it in the browser.
-
-**<u>Acknowledgements</u>**
-
-A special thank you for all team members for their hard work, understanding and friendship shown during the process of creating this site.
-
-Also, a big thank you to all of our family and friends for their understanding and support shown.
-
-
-Testing new branch!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Content
+- [GitHub: Project Repository](https://github.com/NaoiseGaffney/ElderCareSupreme/)
+- [Website: Elder Care Supreme](https://elder-care-supreme.herokuapp.com/)
