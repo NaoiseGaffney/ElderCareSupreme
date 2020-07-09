@@ -3,9 +3,9 @@
 {% block title %}
 {% endblock %}
 {% block content %}
+<div class="container">
+<h5>Your task was susccesfully removed!</h5>
 
-<h3>Your task was susccesfully removed!</h3>
-
-<a href="{% url 'task_list' %}" class="waves-effect waves-light btn">Go Back to Task List</a>
-
+<a href="{% url 'task_list' %}" class="waves-effect waves-light btn pink lighten-2">Go Back to Task List</a>
+</div>
 {% endblock %}
